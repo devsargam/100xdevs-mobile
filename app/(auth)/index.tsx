@@ -14,15 +14,19 @@ export default function AuthScreen() {
         }}
       />
       <View className="flex flex-row px-20 justify-center items-center gap-10">
-        <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
-          <Link href={'/(tabs)/(register)/register'}>
+        <Link href={'/(auth)/register/register'} asChild>
+          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
+
             <Text className="text-white">Register</Text>
-          </Link>
-        </Pressable>
+
+          </Pressable>
+        </Link>
         <View className="h-2" />
-        <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
-          <Text className="text-white">Login</Text>
-        </Pressable>
+        <Link href={'/(auth)/login/login'} asChild>
+          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
+            <Text className="text-white">Login</Text>
+          </Pressable>
+        </Link>
       </View>
     </View>
   );
