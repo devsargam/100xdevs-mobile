@@ -1,15 +1,15 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Link, Tabs } from "expo-router";
+import React from "react";
+import { Pressable } from "react-native";
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { useColorScheme } from "@/components/useColorScheme";
+import Colors from "@/constants/Colors";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
@@ -21,11 +21,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
-        title: 'Hkirat Bhaiya Image',
+        title: "Hkirat Bhaiya Image",
         headerLeft: () => (
           <Link href="/(tabs)/" asChild>
             <Pressable>
@@ -33,7 +33,7 @@ export default function TabLayout() {
                 <FontAwesome
                   name="bars"
                   size={25}
-                  color={Colors[colorScheme ?? 'light'].text}
+                  color={Colors[colorScheme ?? "light"].text}
                   style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
                 />
               )}
@@ -47,7 +47,7 @@ export default function TabLayout() {
                 <FontAwesome
                   name="bell"
                   size={25}
-                  color={Colors[colorScheme ?? 'light'].text}
+                  color={Colors[colorScheme ?? "light"].text}
                   style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                 />
               )}
@@ -59,16 +59,44 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarLabel: 'Home',
-          headerTitleAlign: 'center',
+          tabBarLabel: "Home",
+          headerTitleAlign: "center",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
-     
-     <Tabs.Screen name='downloads' options={{ tabBarLabel: 'Downloads', tabBarIcon: ({ color }) => <TabBarIcon name='download' color={color} /> }} />
-     <Tabs.Screen name='myZone' options={{ tabBarLabel: 'My Zone', tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} /> }} />
-     <Tabs.Screen name='codeLab' options={{ tabBarLabel: 'Code Lab', tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} /> }} />
-     <Tabs.Screen name='codeHelp' options={{ tabBarLabel: 'Code Help', tabBarIcon: ({ color }) => <TabBarIcon name='codepen' color={color} /> }} />
+
+      <Tabs.Screen
+        name="downloads"
+        options={{
+          tabBarLabel: "Downloads",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="download" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="myZone"
+        options={{
+          tabBarLabel: "My Zone",
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="codeLab"
+        options={{
+          tabBarLabel: "Code Lab",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="codeHelp"
+        options={{
+          tabBarLabel: "Code Help",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="codepen" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

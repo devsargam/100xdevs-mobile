@@ -1,4 +1,4 @@
-import { Text, View } from '@/components/Themed';
+import { Text, View } from "@/components/Themed";
 
 export default function RegisterScreen() {
   //TODO: have a top back nav button, have 5 fields name , phone number, email password, state and and agreement to terms and conditon and button to  register
