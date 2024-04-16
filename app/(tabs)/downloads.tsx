@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { View, Text } from "react-native";
 
 const Downloads = () => {
-    return (
-        <View>
-            <Text>Downloads</Text>
-        </View>
-    )
-}
+  return (
+    <View>
+      <Text>Downloads</Text>
+    </View>
+  );
+};
 
-export default Downloads
+export default Downloads;

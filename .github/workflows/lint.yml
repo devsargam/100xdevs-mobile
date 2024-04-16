@@ -1,0 +1,26 @@
+name: Lint, TypeScript Check, and Format
+
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Formatting Check
+        run: npm run format-check
+
+      - name: Type check
+        run: npm run type-check

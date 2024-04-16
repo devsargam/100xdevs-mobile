@@ -1,12 +1,13 @@
-import { Text, View } from '@/components/Themed';
-import { FontAwesome } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, TextInput } from 'react-native';
+import { FontAwesome } from "@expo/vector-icons";
+import { Link } from "expo-router";
+import { useState } from "react";
+import { Pressable, TextInput } from "react-native";
+
+import { Text, View } from "@/components/Themed";
 
 export default function LoginScreen() {
-  const [input, setInput] = useState('');
-  const [password, setPassword] = useState('');
+  const [input, setInput] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     if (!input.length || !password.length) return;
@@ -51,12 +52,12 @@ export default function LoginScreen() {
         />
       </View>
       <Link href="/(tabs)/" asChild>
-      <Pressable
-        onPress={handleLogin}
-        className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded"
-      >
-        <Text className="text-white text-center">Login</Text>
-      </Pressable>
+        <Pressable
+          onPress={handleLogin}
+          className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded"
+        >
+          <Text className="text-white text-center">Login</Text>
+        </Pressable>
       </Link>
     </View>
   );

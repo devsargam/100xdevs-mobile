@@ -1,21 +1,21 @@
-import { StyleSheet } from 'react-native';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { StyleSheet } from "react-native";
 
-import { Text, View } from '@/components/Themed';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { Text, View } from "@/components/Themed";
 
 const API_URL =
-  'https://api.oceandrivers.com:443/v1.0/getAemetStation/jfksdjfjfksdjfjkfdjkjfkdfjkfdjskfdjfksjfk/lastdata/';
+  "https://api.oceandrivers.com:443/v1.0/getAemetStation/jfksdjfjfksdjfjkfdjkjfkdfjkfdjskfdjfksjfk/lastdata/";
 
 interface IResponse {
   data: {
     TEMPERATE: number;
     TWD: number;
     PRESSURE: number;
-    RAIN_MONTH: Number;
+    RAIN_MONTH: number;
     RAIN_DAY: 0;
     RAIN: 0;
-    HUMIDITY: Number;
+    HUMIDITY: number;
   };
 }
 
@@ -53,16 +53,16 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
