@@ -1,7 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import React from "react";
-import { Pressable } from "react-native";
 
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import { useColorScheme } from "@/components/useColorScheme";
@@ -24,36 +23,36 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-        title: "Hkirat Bhaiya Image",
-        headerLeft: () => (
-          <Link href="/(tabs)/" asChild>
-            <Pressable>
-              {({ pressed }) => (
-                <FontAwesome
-                  name="bars"
-                  size={25}
-                  color={Colors[colorScheme ?? "light"].text}
-                  style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
-                />
-              )}
-            </Pressable>
-          </Link>
-        ),
-        headerRight: () => (
-          <Link href="/modal" asChild>
-            <Pressable>
-              {({ pressed }) => (
-                <FontAwesome
-                  name="bell"
-                  size={25}
-                  color={Colors[colorScheme ?? "light"].text}
-                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                />
-              )}
-            </Pressable>
-          </Link>
-        ),
+        headerShown: useClientOnlyValue(false, false),
+        // title: "Hkirat Bhaiya Image",
+        // headerLeft: () => (
+        //   <Link href="/(drawer)/" asChild>
+        //     <Pressable>
+        //       {({ pressed }) => (
+        //         <FontAwesome
+        //           name="bars"
+        //           size={25}
+        //           color={Colors[colorScheme ?? "light"].text}
+        //           style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
+        //         />
+        //       )}
+        //     </Pressable>
+        //   </Link>
+        // ),
+        // headerRight: () => (
+        //   <Link href="/modal" asChild>
+        //     <Pressable>
+        //       {({ pressed }) => (
+        //         <FontAwesome
+        //           name="bell"
+        //           size={25}
+        //           color={Colors[colorScheme ?? "light"].text}
+        //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+        //         />
+        //       )}
+        //     </Pressable>
+        //   </Link>
+        // ),
       }}
     >
       <Tabs.Screen
