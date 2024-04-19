@@ -1,32 +1,34 @@
 import { Link } from "expo-router";
-import { Image, Pressable } from "react-native";
+import { Image } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import { PrimaryButton } from "@/components/Buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AuthScreen() {
   return (
-    <View className="flex overflow-scroll flex-col gap-10 h-[95vh] items-center justify-center">
-      <Image
-        source={require("@/assets/images/harkirat.jpeg")}
-        style={{
-          width: 300,
-          height: 300,
-          resizeMode: "contain",
-        }}
-      />
-      <View className="flex flex-row px-20 justify-center items-center gap-10">
-        <Link href="/(auth)/register/register" asChild>
-          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
-            <Text className="text-white">Register</Text>
-          </Pressable>
-        </Link>
-        <View className="h-2" />
-        <Link href="/(auth)/login/login" asChild>
-          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
-            <Text className="text-white">Login</Text>
-          </Pressable>
-        </Link>
+    <SafeAreaView>
+      <View className="flex items-center justify-center px-5 w-screen h-screen">
+        <Image
+          source={require("@/assets/images/harkirat.jpeg")}
+          className="w-50 h-50 object-contain"
+        />
+        <View className="w-full px-2 mt-20">
+          <Link href="/(auth)/register/register" asChild>
+            <PrimaryButton onPress={() => { }}>
+              <Text className="text-white">Register</Text>
+            </PrimaryButton>
+          </Link>
+        </View>
+        <View className="absolute bottom-20 flex justify-center items-center">
+          <Text className="text-lg">Allready have an account?{' '}
+            <Link href="/(auth)/login/login" asChild>
+              <Text className="text-black underline text-lg">Log-in</Text>
+            </Link>
+          </Text>
+
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

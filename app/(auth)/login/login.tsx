@@ -1,9 +1,11 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { Pressable, TextInput } from "react-native";
+import { TextInput } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import { PrimaryButton } from "@/components/Buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function LoginScreen() {
   const [input, setInput] = useState("");
@@ -20,45 +22,55 @@ export default function LoginScreen() {
   //FIXME: using a mock routing system, make it work with the real one
 
   return (
-    <View className="flex overflow-scroll flex-col gap-10 h-[95vh] p-10">
-      <Text className="text-xl font-bold">Login to Continue</Text>
-      <View className="flex flex-col gap-1">
-        <View className="flex flex-row items-center gap-1">
-          <FontAwesome name="envelope" size={20} />
-          <Text className="text-xl">E-mail Address</Text>
+    <SafeAreaView>
+      <View className="flex items-center justify-center px-5 w-screen h-screen">
+        <View className="w-full my-10">
+          <View className="flex flex-row items-center gap-1">
+            <FontAwesome name="envelope" size={20} />
+            <Text className="text-xl">E-Mail Address</Text>
+          </View>
+          <TextInput
+            className="px-4 py-2 border border-b-slate-300 rounded-md text-black-800"
+            value={input}
+            placeholder="xyz@abc.com"
+            autoCapitalize="none"
+            onChangeText={(text) => {
+              setInput(text);
+            }}
+          />
         </View>
-        <TextInput
-          className="border h-10 p-1"
-          value={input}
-          autoCapitalize="none"
-          onChangeText={(text) => {
-            setInput(text);
-          }}
-        />
-      </View>
-      <View className="flex flex-col gap-1">
-        <View className="flex flex-row items-center gap-1">
-          <FontAwesome name="lock" size={20} />
-          <Text className="text-xl">Password</Text>
+        <View className="w-full my-10">
+          <View className="flex flex-row items-center gap-1">
+            <FontAwesome name="lock" size={20} />
+            <Text className="text-xl">Password</Text>
+          </View>
+          <TextInput
+            className="px-4 py-2 border border-b-slate-300 rounded-md text-black-600"
+            secureTextEntry
+            value={password}
+            placeholder="**********"
+            autoCapitalize="none"
+            onChangeText={(text) => {
+              setPassword(text);
+            }}
+          />
         </View>
-        <TextInput
-          className="border h-10 p-1"
-          secureTextEntry
-          value={password}
-          autoCapitalize="none"
-          onChangeText={(text) => {
-            setPassword(text);
-          }}
-        />
+        <View className="absolute bottom-20 w-full">
+          <Link href="/(tabs)/" asChild>
+            <PrimaryButton onPress={() => { }}>
+              <Text className="text-white text-center">Login</Text>
+            </PrimaryButton>
+          </Link>
+        </View>
+        <View className="absolute bottom-5">
+
+          <Text className="text-lg">Don't have an account?{' '}
+            <Link href="/(auth)/register/register" asChild>
+              <Text className="text-black underline text-lg" >Register</Text>
+            </Link>
+          </Text>
+        </View>
       </View>
-      <Link href="/(tabs)/" asChild>
-        <Pressable
-          onPress={handleLogin}
-          className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded"
-        >
-          <Text className="text-white text-center">Login</Text>
-        </Pressable>
-      </Link>
-    </View>
+    </SafeAreaView>
   );
 }
