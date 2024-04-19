@@ -2,10 +2,10 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useState } from "react";
 import { TextInput } from "react-native";
-
-import { Text, View } from "@/components/Themed";
-import { PrimaryButton } from "@/components/Buttons";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+import { PrimaryButton } from "@/components/Buttons";
+import { Text, View } from "@/components/Themed";
 
 export default function LoginScreen() {
   const [input, setInput] = useState("");
@@ -57,16 +57,16 @@ export default function LoginScreen() {
         </View>
         <View className="absolute bottom-20 w-full">
           <Link href="/(tabs)/" asChild>
-            <PrimaryButton onPress={() => { }}>
+            <PrimaryButton onPress={() => {}}>
               <Text className="text-white text-center">Login</Text>
             </PrimaryButton>
           </Link>
         </View>
         <View className="absolute bottom-5">
-
-          <Text className="text-lg">Don't have an account?{' '}
+          <Text className="text-lg">
+            Don't have an account?{" "}
             <Link href="/(auth)/register/register" asChild>
-              <Text className="text-black underline text-lg" >Register</Text>
+              <Text className="text-black underline text-lg">Register</Text>
             </Link>
           </Text>
         </View>
