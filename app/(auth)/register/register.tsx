@@ -1,7 +1,10 @@
+import { PrimaryButton } from "@/components/Buttons";
 import { Text, View } from "@/components/Themed";
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
+import { Link } from "expo-router";
 import { useState } from "react";
-import { Dimensions, SafeAreaView, StyleSheet, TextInput } from "react-native";
+import { TextInput } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RegisterScreen() {
   const [name, setName] = useState<string>("")
@@ -10,97 +13,81 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState<string>("")
   //TODO: have a top back nav button, have 5 fields name , phone number, email password, state and and agreement to terms and conditon and button to  register
   return (
+    <SafeAreaView>
+      <View className="flex items-center justify-center px-4 w-screen h-screen" >
+        <View className="flex flex-row justify-start w-full mt-8 mb-1">
+          <MaterialIcons name="person" size={24} color="black" />
+          <Text className="text-black text-center text-base ml-2">Name</Text>
+        </View>
+        <TextInput
+          className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
+          value={name}
+          placeholder="Walter White"
+          autoCapitalize="words"
+          onChangeText={(text) => {
+            setName(text);
+          }}
+        />
+        <View className="flex flex-row justify-start w-full mt-8 mb-1">
+          <Entypo name="phone" size={24} color="black" />
+          <Text className="text-black text-center text-base ml-2">Phone Number</Text>
+        </View>
+        <TextInput
+          className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
+          value={phoneNumber}
+          placeholder="+91 9876543210"
+          autoCapitalize="words"
+          onChangeText={(text) => {
+            setPhoneNumber(text);
+          }}
+        />
+        <View className="flex flex-row justify-start w-full mt-8 mb-1">
+          <MaterialIcons name="email" size={24} color="black" />
+          <Text className="text-black text-center text-base ml-2">Email</Text>
+        </View>
+        <TextInput
+          className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
+          value={email}
+          placeholder="+91 9876543210"
+          autoCapitalize="words"
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+        />
+        <View className="flex flex-row justify-start w-full mt-8 mb-1">
+          <MaterialIcons name="password" size={24} color="black" />
+          <Text className="text-black text-center text-base ml-2">Password</Text>
+        </View>
+        <TextInput
+          className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
+          value={password}
+          placeholder="**********"
+          autoCapitalize="none"
+          secureTextEntry={true}
+          onChangeText={(text) => {
+            setPassword(text);
+          }}
+        />
+        <View className="flex flex-row justify-start w-full mt-8 mb-1">
+          <Entypo name="location" size={24} color="black" />
+          <Text className="text-black text-center text-base ml-2">State</Text>
+        </View>
+        <View className="absolute bottom-20 w-full">
+          <Link href="/(tabs)/" asChild>
+            <PrimaryButton onPress={() => { }}>
+              <Text className="text-white text-center">Register</Text>
+            </PrimaryButton>
+          </Link>
+        </View>
+        <View className="absolute bottom-4 flex justify-center items-center">
+          <Text className="text-lg">Allready have an account?{' '}
+            <Link href="/(auth)/login/login" asChild>
+              <Text className="text-black underline text-lg">Log-in</Text>
+            </Link>
+          </Text>
 
-    <View style={styles.container}>
-      <View style={styles.inputTitleContainer}>
-        <MaterialIcons name="person" size={24} color="black" />
-        <Text style={styles.inputTitle}>Name</Text>
+        </View>
       </View>
-      <TextInput
-        style={styles.inputContainer}
-        value={name}
-        placeholder="Walter White"
-        autoCapitalize="words"
-        onChangeText={(text) => {
-          setName(text);
-        }}
-      />
-      <View style={styles.inputTitleContainer}>
-        <Entypo name="phone" size={24} color="black" />
-        <Text style={styles.inputTitle}>Phone Number</Text>
-      </View>
-      <TextInput
-        style={styles.inputContainer}
-        value={phoneNumber}
-        placeholder="+91 9876543210"
-        autoCapitalize="words"
-        onChangeText={(text) => {
-          setPhoneNumber(text);
-        }}
-      />
-      <View style={styles.inputTitleContainer}>
-        <MaterialIcons name="email" size={24} color="black" />
-        <Text style={styles.inputTitle}>Email</Text>
-      </View>
-      <TextInput
-        style={styles.inputContainer}
-        value={email}
-        placeholder="+91 9876543210"
-        autoCapitalize="words"
-        onChangeText={(text) => {
-          setEmail(text);
-        }}
-      />
-      <View style={styles.inputTitleContainer}>
-        <MaterialIcons name="password" size={24} color="black" />
-        <Text style={styles.inputTitle}>Password</Text>
-      </View>
-      <TextInput
-        style={styles.inputContainer}
-        value={password}
-        placeholder="**********"
-        autoCapitalize="none"
-        secureTextEntry={true}
-        onChangeText={(text) => {
-          setPassword(text);
-        }}
-      />
-      <View style={styles.inputTitleContainer}>
-        <Entypo name="location" size={24} color="black" />
-        <Text style={styles.inputTitle}>State</Text>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height,
-    alignItems: 'center',
-    justifyContent: "center",
-    paddingHorizontal: 20
-  },
-  inputTitleContainer: {
-    flexDirection: 'row',
-    justifyContent: "flex-start",
-    width: "100%",
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  inputTitle: {
-    color: "black",
-    fontSize: 16,
-    textAlign: 'center',
-    marginLeft: 8
-  },
-  inputContainer: {
-    width: '100%',
-    paddingHorizontal: 10,
-    borderRadius: 2,
-    color: "black",
-    paddingVertical: 5,
-    borderWidth: 0.2,
-    borderColor: "black",
-  },
-})
