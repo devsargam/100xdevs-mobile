@@ -1,32 +1,60 @@
 import { Link } from "expo-router";
-import { Image, Pressable } from "react-native";
+import { Dimensions, Image, Pressable, StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import { PrimaryButton } from "@/components/Buttons";
 
 export default function AuthScreen() {
   return (
-    <View className="flex overflow-scroll flex-col gap-10 h-[95vh] items-center justify-center">
+    <View style={styles.container}>
       <Image
         source={require("@/assets/images/harkirat.jpeg")}
-        style={{
-          width: 300,
-          height: 300,
-          resizeMode: "contain",
-        }}
+        style={styles.logo}
       />
-      <View className="flex flex-row px-20 justify-center items-center gap-10">
+      <View style={styles.buttonContainer}>
         <Link href="/(auth)/register/register" asChild>
-          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
+          <PrimaryButton onPress={() => { }}>
             <Text className="text-white">Register</Text>
-          </Pressable>
+          </PrimaryButton>
         </Link>
-        <View className="h-2" />
-        <Link href="/(auth)/login/login" asChild>
-          <Pressable className="bg-blue-500 hover:bg-blue-700 active:bg-blue-700 transition-colors text-white font-bold py-2 px-4 rounded">
-            <Text className="text-white">Login</Text>
-          </Pressable>
-        </Link>
+      </View>
+      <View style={styles.longTextContainer}>
+        <Text style={styles.longText}>Allready have an account?{' '}
+          <Link href="/(auth)/login/login" asChild>
+            <Text className="text-black underline" style={styles.longText}>Log-in</Text>
+          </Link>
+        </Text>
+
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  logo: {
+    width: 300,
+    height: 300,
+    resizeMode: "contain",
+  },
+  buttonContainer: {
+    width: "100%",
+    paddingHorizontal: 20,
+  },
+  longTextContainer: {
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
+    alignItems: "center"
+  },
+  longText: {
+    fontSize: 18,
+  }
+});
