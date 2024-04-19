@@ -18,7 +18,8 @@ interface IResponse {
     HUMIDITY: number;
   };
 }
-
+//TODO: this page will have a button of courses which will render a component on click, on press of his course click he will be redirected to videos
+//TODO: then show them courses list
 export default function TabOneScreen() {
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState<IResponse | null>(null);
