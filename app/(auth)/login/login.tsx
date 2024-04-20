@@ -3,7 +3,6 @@ import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 import { login } from "@/api/actions/loginActions";
 import { PrimaryButton } from "@/components/Buttons";
 import { Text, View } from "@/components/Themed";
