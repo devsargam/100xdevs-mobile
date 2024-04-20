@@ -1,10 +1,9 @@
 import { Link } from "expo-router";
-import { Image, Pressable } from "react-native";
+import { Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
 import { Text, View } from "@/components/Themed";
-import { useHealthHook } from "@/hooks/useHealthHook";
 
 export default function AuthScreen() {
   return (

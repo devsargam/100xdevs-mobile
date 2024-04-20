@@ -1,7 +1,6 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { useEffect, useState } from "react";
-import * as SecureStore from "expo-secure-store";
+import axios from "axios";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
 
 export const useHealthHook = () => {
   const [loading, setLoading] = useState<boolean>(true);

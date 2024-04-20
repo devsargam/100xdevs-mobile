@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
-import * as SecureStore from "expo-secure-store";
 import { router } from "expo-router";
+import * as SecureStore from "expo-secure-store";
 
 export const getLogin = async () => {};
 
@@ -23,7 +23,7 @@ export const login = async (email: string, password: string) => {
                 apiUrl + "/api/auth/callback/credentials",
                 {
                   username: email,
-                  password: password,
+                  password,
                   redirect: false,
                   csrfToken: csrf_token,
                   json: true,
