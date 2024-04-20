@@ -15,7 +15,7 @@ export default function AuthScreen() {
         />
         <View className="w-full px-2 mt-20">
           <Link href="/(auth)/register/register" asChild>
-            <PrimaryButton disabled={false} onPress={() => {}}>
+            <PrimaryButton onPress={() => {}}>
               <Text className="text-white">Register</Text>
             </PrimaryButton>
           </Link>

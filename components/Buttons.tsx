@@ -3,13 +3,9 @@ import { Pressable, StyleSheet } from "react-native";
 
 import { secondaryColor } from "@/constants/Colors";
 
-export const PrimaryButton: React.FC<Button> = ({
-  children,
-  onPress,
-  disabled,
-}) => {
+export const PrimaryButton: React.FC<Button> = ({ children, onPress }) => {
   return (
-    <Pressable onPress={onPress} disabled={disabled} style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       {children}
     </Pressable>
   );

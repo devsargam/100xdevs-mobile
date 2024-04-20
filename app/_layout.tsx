@@ -9,8 +9,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { useHealthHook } from "@/hooks/useHealthHook";
+import { useColorScheme } from "@/components/useColorScheme";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -30,7 +29,6 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
-  const [loading, data, helthCheckError] = useHealthHook();
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -38,10 +36,15 @@ export default function RootLayout() {
   }, [error]);
 
   useEffect(() => {
-    if (loaded && !loading) {
+    if (loaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded, loading]);
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
+
   return <RootLayoutNav />;
 }
 
