@@ -2,8 +2,8 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 import React from "react";
 
-import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-import { useColorScheme } from "@/components/useColorScheme";
+import { useClientOnlyValue } from "@/hooks/useClientOnlyValue";
+import { useColorScheme } from "@/hooks/useColorScheme";
 import Colors from "@/constants/Colors";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/

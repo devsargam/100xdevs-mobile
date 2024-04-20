@@ -1,9 +1,10 @@
 import { Link } from "expo-router";
-import { Image } from "react-native";
-
-import { Text, View } from "@/components/Themed";
-import { PrimaryButton } from "@/components/Buttons";
+import { Image, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+import { PrimaryButton } from "@/components/Buttons";
+import { Text, View } from "@/components/Themed";
+import { useHealthHook } from "@/hooks/useHealthHook";
 
 export default function AuthScreen() {
   return (
@@ -15,18 +16,18 @@ export default function AuthScreen() {
         />
         <View className="w-full px-2 mt-20">
           <Link href="/(auth)/register/register" asChild>
-            <PrimaryButton onPress={() => { }}>
+            <PrimaryButton disabled={false} onPress={() => {}}>
               <Text className="text-white">Register</Text>
             </PrimaryButton>
           </Link>
         </View>
         <View className="absolute bottom-20 flex justify-center items-center">
-          <Text className="text-lg">Allready have an account?{' '}
+          <Text className="text-lg">
+            Allready have an account?{" "}
             <Link href="/(auth)/login/login" asChild>
               <Text className="text-black underline text-lg">Log-in</Text>
             </Link>
           </Text>
-
         </View>
       </View>
     </SafeAreaView>
