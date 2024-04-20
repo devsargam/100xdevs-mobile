@@ -74,6 +74,7 @@ export default function LoginScreen() {
           >
             <Text className="text-white text-center">Login</Text>
           </PrimaryButton>
+
         </View>
         <View className="absolute bottom-5">
           <Text className="text-lg">

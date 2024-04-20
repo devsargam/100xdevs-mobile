@@ -2,7 +2,6 @@ import React from "react";
 import { Pressable, StyleSheet } from "react-native";
 
 import { secondaryColor } from "@/constants/Colors";
-
 export const PrimaryButton: React.FC<Button> = ({
   children,
   onPress,
