@@ -25,9 +25,11 @@
     "@react-navigation/native": "^6.0.2",
     "axios": "^1.6.8",
     "expo": "~50.0.17",
+    "expo-av": "^13.10.6",
     "expo-font": "~11.10.3",
     "expo-linking": "~6.2.2",
     "expo-router": "~3.4.8",
+    "expo-secure-store": "~12.8.1",
     "expo-splash-screen": "~0.26.4",
     "expo-status-bar": "~1.11.1",
     "expo-system-ui": "~2.9.4",
@@ -41,8 +43,7 @@
     "react-native-reanimated": "~3.6.2",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
-    "react-native-web": "~0.19.6",
-    "expo-secure-store": "~12.8.1"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

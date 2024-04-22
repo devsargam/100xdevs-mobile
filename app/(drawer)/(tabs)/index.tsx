@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 
+import { getCourses } from "@/api/actions/courseActions";
+import Courses from "@/components/Courses";
 import { Text, View } from "@/components/Themed";
 
 const API_URL =
@@ -21,18 +22,20 @@ interface IResponse {
 //TODO: this page will have a button of courses which will render a component on click, on press of his course click he will be redirected to videos
 //TODO: then show them courses list
 export default function TabOneScreen() {
-  const [loading, setLoading] = useState(true);
-  const [response, setResponse] = useState<IResponse | null>(null);
-  const fetchData = async () => {
-    const res = await axios.get(API_URL);
-    setResponse(res);
-    setLoading(false);
-  };
-
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<CoursesResponse[]>([]);
+  // const [loading, data, error] = useHealthHook()
   useEffect(() => {
-    fetchData();
-  }, []);
-
+    getCourses()
+      .then((courses) => {
+        setData(courses);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setData([]);
+      });
+  }, [loading]);
   if (loading) {
     return (
       <View style={styles.container}>
@@ -43,10 +46,7 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>
-        <Text>{response?.data.PRESSURE}</Text>
-        {JSON.stringify(response, null, 2)}
-      </Text>
+      <Courses data={data} />
     </View>
   );
 }
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
+    height: "100%",
   },
   title: {
     fontSize: 20,

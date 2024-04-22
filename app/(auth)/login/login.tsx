@@ -3,6 +3,7 @@ import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Pressable, StyleSheet, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import { login } from "@/api/actions/loginActions";
 import { PrimaryButton } from "@/components/Buttons";
 import { Text, View } from "@/components/Themed";
@@ -22,7 +23,7 @@ export default function LoginScreen() {
         setLoading(false);
       });
   };
-  useEffect(() => { }, [loading]);
+  useEffect(() => {}, [loading]);
 
   //FIXME: using a mock routing system, make it work with the real one
   if (loading) {
@@ -43,9 +44,7 @@ export default function LoginScreen() {
             className="object-contain"
             style={styles.image}
           />
-          <Text className="text-2xl font-bold">
-            100xdevs
-          </Text>
+          <Text className="text-2xl font-bold">100xdevs</Text>
         </View>
         <View className="w-full my-4">
           {/* <View className="flex flex-row items-center gap-1"> */}
@@ -82,11 +81,19 @@ export default function LoginScreen() {
                 setPassword(text);
               }}
             />
-            <Pressable onPress={() => setShowPassword(!showPassword)} style={{
-              alignItems: 'center',
-              justifyContent: 'center', marginRight: 10
-            }}>
-              {showPassword ? <Ionicons name="eye-off" size={24} color="black" /> : <Ionicons name="eye" size={24} color="black" />}
+            <Pressable
+              onPress={() => setShowPassword(!showPassword)}
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: 10,
+              }}
+            >
+              {showPassword ? (
+                <Ionicons name="eye-off" size={24} color="black" />
+              ) : (
+                <Ionicons name="eye" size={24} color="black" />
+              )}
             </Pressable>
           </View>
         </View>
@@ -111,16 +118,15 @@ export default function LoginScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   svg: {
-    alignSelf: "center"
+    alignSelf: "center",
   },
   textInput: {
-    width: "85%"
+    width: "85%",
   },
   image: {
     height: 200,
     width: 200,
-  }
-})
+  },
+});

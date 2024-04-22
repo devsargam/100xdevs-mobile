@@ -8,3 +8,14 @@ type SessionResponse = {
     role: string;
   };
 };
+
+type CoursesResponse = {
+  appxCourseId: number;
+  description: string;
+  discordRoleId: string;
+  id: number;
+  imageUrl: string;
+  openToEveryone: boolean;
+  slug: string;
+  title: string;
+};

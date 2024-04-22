@@ -34,9 +34,6 @@ export const login = async (email: string, password: string) => {
                 axios
                   .get(apiUrl + "/api/auth/session")
                   .then((session_response) => {
-                    console.log(
-                      "Session Details: " + session_response.data.user,
-                    );
                     SecureStore.setItem(
                       "jwt_token",
                       session_response.data.user.jwtToken,
