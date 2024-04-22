@@ -73,7 +73,7 @@ export const login = async (email: string, password: string) => {
                       "expires",
                       session_response.data.expires,
                     );
-                    router.replace("(drawer)");
+                   router.replace('/(drawer)/(tabs)/')
                   });
               });
           });

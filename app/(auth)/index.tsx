@@ -14,12 +14,10 @@ export default function AuthScreen() {
           className="object-contain"
           style={styles.image}
         />
-        <Text className="text-3xl font-bold">
-          100xdevs
-        </Text>
+        <Text className="text-3xl font-bold">100xdevs</Text>
         <View className="w-full px-2 mt-20">
           <Link href="/(auth)/register/register" asChild>
-            <PrimaryButton disabled={false} onPress={() => { }}>
+            <PrimaryButton disabled={false} onPress={() => {}}>
               <Text className="text-white">Register</Text>
             </PrimaryButton>
           </Link>
@@ -41,6 +39,6 @@ const styles = StyleSheet.create({
   image: {
     height: 350,
     width: 350,
-    resizeMode: "contain"
-  }
-})
+    resizeMode: "contain",
+  },
+});
