@@ -3,6 +3,8 @@ import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useEffect, useState } from "react";
 
+import { session } from "@/api/constants";
+
 export const useHealthHook = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<SessionResponse>();
@@ -10,10 +12,10 @@ export const useHealthHook = () => {
   const getData = async () => {
     const apiUrl = process.env.EXPO_PUBLIC_API_URL;
     axios
-      .get(apiUrl + "/api/auth/session")
+      .get(apiUrl + session)
       .then((response) => {
         setData(response.data);
-        router.replace("(drawer)");
+        router.replace("/(drawer)/(tabs)/");
       })
       .catch((error) => {
         setError(error);

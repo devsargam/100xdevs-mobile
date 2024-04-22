@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image} from "react-native";
+import { Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
@@ -33,4 +33,3 @@ export default function AuthScreen() {
     </SafeAreaView>
   );
 }
-

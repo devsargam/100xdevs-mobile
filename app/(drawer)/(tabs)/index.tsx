@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
 
@@ -35,14 +34,14 @@ export default function TabOneScreen() {
 
   if (loading) {
     return (
-      <View style={styles.container}>
+      <View className="flex flex-1 align-center justify-center">
         <Text>Loading...</Text>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <View className="flex flex-1 align-center justify-center">
       <Text>
         <Text>{response?.data.PRESSURE}</Text>
         {JSON.stringify(response, null, 2)}
@@ -50,20 +49,3 @@ export default function TabOneScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});

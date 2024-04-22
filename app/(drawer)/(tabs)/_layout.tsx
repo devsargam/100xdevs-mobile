@@ -2,9 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 import React from "react";
 
-import Colors from "@/constants/Colors";
 import { useClientOnlyValue } from "@/hooks/useClientOnlyValue";
-import { useColorScheme } from "@/hooks/useColorScheme";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -15,44 +13,10 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, false),
-        // title: "Hkirat Bhaiya Image",
-        // headerLeft: () => (
-        //   <Link href="/(drawer)/" asChild>
-        //     <Pressable>
-        //       {({ pressed }) => (
-        //         <FontAwesome
-        //           name="bars"
-        //           size={25}
-        //           color={Colors[colorScheme ?? "light"].text}
-        //           style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
-        //         />
-        //       )}
-        //     </Pressable>
-        //   </Link>
-        // ),
-        // headerRight: () => (
-        //   <Link href="/modal" asChild>
-        //     <Pressable>
-        //       {({ pressed }) => (
-        //         <FontAwesome
-        //           name="bell"
-        //           size={25}
-        //           color={Colors[colorScheme ?? "light"].text}
-        //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-        //         />
-        //       )}
-        //     </Pressable>
-        //   </Link>
-        // ),
       }}
     >
       <Tabs.Screen

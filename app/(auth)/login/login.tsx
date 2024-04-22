@@ -1,7 +1,7 @@
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, Pressable, StyleSheet, TextInput } from "react-native";
+import { Image, Pressable, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { login } from "@/api/actions/loginActions";
@@ -41,8 +41,7 @@ export default function LoginScreen() {
         <View className="absolute top-10 m-4 items-center  w-full">
           <Image
             source={require("@/assets/images/harkirat.jpeg")}
-            className="object-contain"
-            style={styles.image}
+            className="object-contain h-200 w-200"
           />
           <Text className="text-2xl font-bold">100xdevs</Text>
         </View>
@@ -51,10 +50,9 @@ export default function LoginScreen() {
           <Text className="text-xl">email</Text>
           {/* </View> */}
           <View className=" flex-row px-4 align-middle border border-b-slate-800 rounded-md text-black-800">
-            <FontAwesome name="envelope" size={20} style={styles.svg} />
+            <FontAwesome name="envelope" size={20} className="" />
             <TextInput
-              style={styles.textInput}
-              className="py-4 ml-4"
+              className="py-4 ml-4 w-85"
               value={input}
               placeholder="xyz@abc.com"
               autoCapitalize="none"
@@ -69,10 +67,9 @@ export default function LoginScreen() {
             <Text className="text-xl">password</Text>
           </View>
           <View className=" flex-row px-4 align-middle justify-between border border-b-slate-800 rounded-md text-black-800">
-            <FontAwesome name="lock" size={20} style={styles.svg} />
+            <FontAwesome name="lock" size={20} className="self-center" />
             <TextInput
-              style={styles.textInput}
-              className="py-4 ml-4"
+              className="py-4 ml-4 w-85"
               secureTextEntry={!showPassword}
               value={password}
               placeholder="**********"
@@ -117,16 +114,3 @@ export default function LoginScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  svg: {
-    alignSelf: "center",
-  },
-  textInput: {
-    width: "85%",
-  },
-  image: {
-    height: 200,
-    width: 200,
-  },
-});
