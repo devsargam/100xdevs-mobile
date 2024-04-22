@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image, StyleSheet } from "react-native";
+import { Image} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
@@ -11,8 +11,7 @@ export default function AuthScreen() {
       <View className="flex items-center justify-center px-5 w-screen h-screen">
         <Image
           source={require("@/assets/images/harkirat.jpeg")}
-          className="object-contain"
-          style={styles.image}
+          className="object-contain h-96 w-96 resize-contain"
         />
         <Text className="text-3xl font-bold">100xdevs</Text>
         <View className="w-full px-2 mt-20">
@@ -35,10 +34,3 @@ export default function AuthScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  image: {
-    height: 350,
-    width: 350,
-    resizeMode: "contain",
-  },
-});

@@ -1,19 +1,17 @@
 import React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 import { secondaryColor } from "@/constants/Colors";
 // Primary Button Coomponent to use the same Button everywhere possible So the UI remains the same
-export const PrimaryButton: React.FC<Button> = ({
-  children,
-  onPress,
-  disabled,
-}) => {
+export const PrimaryButton = React.forwardRef<View, { onPress: () => void; children: React.ReactNode }>((props, ref) => {
+  const { onPress, children } = props;
+
   return (
-    <Pressable onPress={onPress} disabled={disabled} style={styles.container}>
+    <Pressable ref={ref} onPress={onPress} style={styles.container}>
       {children}
     </Pressable>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
