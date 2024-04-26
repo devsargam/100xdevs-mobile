@@ -9,13 +9,7 @@ const Course = ({ data }: { data: CoursesResponse }) => {
     router.navigate({
       pathname: "/(drawer)/trailer",
       params: {
-        title: data?.title,
-        subtitle: data?.description,
-        description: data?.description,
-        vedioUrl: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-        syllabusdescription: data?.description,
-        foundation: ["Nodejs", "React", "Recoil", "Nextjs", "Backend"],
-        price: 5999,
+        courseID: data.id,
       },
     });
   };

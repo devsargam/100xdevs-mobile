@@ -1,9 +1,26 @@
-import { Video as VedioPlayer, ResizeMode } from "expo-av";
+import {
+  Video as VedioPlayer,
+  ResizeMode,
+  VideoFullscreenUpdateEvent,
+} from "expo-av";
+import * as ScreenOrientation from "expo-screen-orientation";
 import React, { useRef } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
+
 const Video = ({ uri }: { uri: string }) => {
   const vedioRef = useRef<any>();
   const [status, setStatus] = React.useState({});
+  const onFullscreenUpdate = async ({
+    fullscreenUpdate,
+  }: VideoFullscreenUpdateEvent) => {
+    if (fullscreenUpdate < 2) {
+      await ScreenOrientation.unlockAsync();
+    } else if (fullscreenUpdate >= 2) {
+      await ScreenOrientation.lockAsync(
+        ScreenOrientation.OrientationLock.PORTRAIT,
+      );
+    }
+  };
   return (
     <View>
       <VedioPlayer
@@ -16,8 +33,10 @@ const Video = ({ uri }: { uri: string }) => {
           width: "100%",
         }}
         useNativeControls
-        resizeMode={ResizeMode.COVER}
+        resizeMode={ResizeMode.CONTAIN}
         isLooping
+        onFullscreenUpdate={onFullscreenUpdate}
+        rotation={1}
         onPlaybackStatusUpdate={(status) => setStatus(() => status)}
       />
     </View>
@@ -34,7 +53,7 @@ const styles = StyleSheet.create({
   },
   video: {
     alignSelf: "center",
-    width: 320,
+    width: Dimensions.get("screen").width,
     height: 200,
   },
   buttons: {
