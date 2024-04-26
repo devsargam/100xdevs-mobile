@@ -3,7 +3,7 @@ import { Image, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
-import { Text, View } from "@/components/Themed";
+import { Text, View } from "react-native";
 
 export default function AuthScreen() {
   return (
