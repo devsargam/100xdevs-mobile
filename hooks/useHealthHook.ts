@@ -15,8 +15,12 @@ export const useHealthHook = () => {
       .get(SESSION)
       .then((response) => {
         setData(response.data);
-        SecureStore.setItem("jwt_token", response.data.user.jwtToken);
-        router.replace("/(drawer)/(tabs)/");
+        if (response.data.user && response.data.user.jwtToken) {
+          SecureStore.setItem("jwt_token", response.data.user.jwtToken);
+          router.replace("/(drawer)/(tabs)/");
+        } else {
+          console.error('JWT token is undefined');
+        }
       })
       .catch((error) => {
         setError(error);
