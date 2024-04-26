@@ -1,11 +1,10 @@
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { TextInput } from "react-native";
+import { TextInput, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
-import { Text, View } from "@/components/Themed";
 
 export default function RegisterScreen() {
   const [name, setName] = useState<string>("");
@@ -51,7 +50,7 @@ export default function RegisterScreen() {
         <TextInput
           className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
           value={email}
-          placeholder="+91 9876543210"
+          placeholder="youremail@abc.com"
           autoCapitalize="words"
           onChangeText={(text) => {
             setEmail(text);
@@ -78,7 +77,7 @@ export default function RegisterScreen() {
           <Text className="text-black text-center text-base ml-2">State</Text>
         </View>
         <View className="absolute bottom-20 w-full">
-          <Link href="/(tabs)/" asChild>
+          <Link href="/(drawer)/(tabs)/" asChild>
             <PrimaryButton disabled={false} onPress={() => {}}>
               <Text className="text-white text-center">Register</Text>
             </PrimaryButton>

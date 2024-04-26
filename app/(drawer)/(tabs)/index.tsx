@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import Courses from "@/components/Courses";
-import { Text, View } from "@/components/Themed";
 import { useCoursesHook } from "@/hooks/useCoursesHook";
 export default function TabOneScreen() {
   const [loading, data, error] = useCoursesHook();
