@@ -1,4 +1,3 @@
-import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, Text } from "react-native";
 
@@ -6,9 +5,8 @@ import { PrimaryButton } from "@/components/Buttons";
 import Video from "@/components/videoplayer/video";
 import { useTrailerHook } from "@/hooks/useTrailerHook";
 
-const trailer = () => {
-  const params = useLocalSearchParams();
-  const [loading, data, error] = useTrailerHook(params.courseID);
+const Trailer = () => {
+  const [loading, data, error] = useTrailerHook();
   if (loading) {
     return (
       <View
@@ -59,4 +57,4 @@ const trailer = () => {
   );
 };
 
-export default trailer;
+export default Trailer;

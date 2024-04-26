@@ -3,15 +3,14 @@ import { useEffect, useState } from "react";
 
 import { TRAILER } from "@/constants/Apiconstants";
 
-export const useTrailerHook = (courseID: string | string[]) => {
+export const useTrailerHook = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<TrailerResponse>();
   const [error, setError] = useState<any>();
   const getData = () => {
     axios
-      .get(TRAILER + "?" + "courseID=" + courseID)
+      .get(TRAILER)
       .then((response) => {
-        console.log(response.data);
         setData(response.data);
         setLoading(false);
       })
