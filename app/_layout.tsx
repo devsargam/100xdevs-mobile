@@ -7,13 +7,9 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useHealthHook } from "@/hooks/useHealthHook";
-import { Text, View } from "react-native";
-import * as SecureStore from "expo-secure-store";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,

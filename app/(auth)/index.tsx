@@ -1,10 +1,9 @@
 import { Link } from "expo-router";
-import { Image, Pressable } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
 import { Text, View } from "@/components/Themed";
-import { useHealthHook } from "@/hooks/useHealthHook";
 
 export default function AuthScreen() {
   return (
@@ -12,11 +11,13 @@ export default function AuthScreen() {
       <View className="flex items-center justify-center px-5 w-screen h-screen">
         <Image
           source={require("@/assets/images/harkirat.jpeg")}
-          className="w-50 h-50 object-contain"
+          className="object-contain"
+          style={styles.image}
         />
+        <Text className="text-3xl font-bold">100xdevs</Text>
         <View className="w-full px-2 mt-20">
           <Link href="/(auth)/register/register" asChild>
-            <PrimaryButton disabled={false} onPress={() => {}}>
+            <PrimaryButton disabled={false} onPress={() => { }}>
               <Text className="text-white">Register</Text>
             </PrimaryButton>
           </Link>
@@ -33,3 +34,11 @@ export default function AuthScreen() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    height: 350,
+    width: 350,
+    resizeMode: "contain",
+  },
+});

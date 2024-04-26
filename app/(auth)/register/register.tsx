@@ -79,7 +79,7 @@ export default function RegisterScreen() {
         </View>
         <View className="absolute bottom-20 w-full">
           <Link href="/(tabs)/" asChild>
-            <PrimaryButton onPress={() => {}}>
+            <PrimaryButton disabled={false} onPress={() => { }}>
               <Text className="text-white text-center">Register</Text>
             </PrimaryButton>
           </Link>

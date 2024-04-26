@@ -1,23 +1,31 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { useEffect, useState } from "react";
-import * as SecureStore from "expo-secure-store";
+import axios from "axios";
 import { router } from "expo-router";
+import * as SecureStore from "expo-secure-store";
+import { useEffect, useState } from "react";
+
+import { SESSION } from "@/constants/Apiconstants";
 
 export const useHealthHook = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<SessionResponse>();
+  const [data, setData] = useState<any>();
   const [error, setError] = useState<any>();
   const getData = async () => {
     const apiUrl = process.env.EXPO_PUBLIC_API_URL;
     axios
-      .get(apiUrl + "/api/auth/session")
+      .get(SESSION)
       .then((response) => {
         setData(response.data);
-        router.replace("(drawer)");
+        SecureStore.setItem("jwt_token", response.data.user.jwtToken);
+        router.replace("/(drawer)/(tabs)/");
       })
       .catch((error) => {
         setError(error);
-        router.replace("(drawer)");
+        SecureStore.deleteItemAsync("jwt_token");
+        SecureStore.deleteItemAsync("name");
+        SecureStore.deleteItemAsync("email");
+        SecureStore.deleteItemAsync("id");
+        SecureStore.deleteItemAsync("role");
+        SecureStore.deleteItemAsync("expires");
       })
       .finally(() => {
         setLoading(false);
