@@ -1,26 +1,23 @@
-import axios, { AxiosError } from "axios";
+import { CREDENTIALS, CSRF, PROVIDERS, SESSION, SIGNIN } from "@/constants/Apiconstants";
+import axios from "axios";
 import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 
-export const getLogin = async () => {};
+export const getLogin = async () => { };
 
 export const login = async (email: string, password: string) => {
-  const apiUrl = process.env.EXPO_PUBLIC_API_URL;
-  let credential_urls = "";
   let csrf_token = "";
-  fetch(apiUrl + "/api/auth/signin", {
+  await fetch(SIGNIN, {
     method: "get",
   })
-    .then((signin_response) => {
+    .then((_) => {
       axios
-        .get(apiUrl + "/api/auth/providers")
-        .then((provider_response) => {
-          credential_urls = provider_response.data.credentials.signinUrl;
-          axios.get(apiUrl + "/api/auth/csrf").then((csrf_response) => {
+        .get(PROVIDERS)
+        .then((_) => {
+          axios.get(CSRF).then((csrf_response) => {
             csrf_token = csrf_response.data.csrfToken;
             axios
-              .post(
-                apiUrl + "/api/auth/callback/credentials",
+              .post(CREDENTIALS,
                 {
                   username: email,
                   password,
@@ -30,9 +27,9 @@ export const login = async (email: string, password: string) => {
                 },
                 {},
               )
-              .then((credentials_response) => {
+              .then((_) => {
                 axios
-                  .get(apiUrl + "/api/auth/session")
+                  .get(SESSION)
                   .then((session_response) => {
                     SecureStore.setItem(
                       "jwt_token",
@@ -40,15 +37,10 @@ export const login = async (email: string, password: string) => {
                     );
                   });
               })
-              .catch((error: AxiosError) => {
-                console.log(error.request);
-                console.log("Error", error.status);
+              .catch((_) => {
                 axios
-                  .get(apiUrl + "/api/auth/session")
+                  .get(SESSION)
                   .then((session_response) => {
-                    console.log(
-                      "Session Details: " + session_response.data.user,
-                    );
                     SecureStore.setItem(
                       "jwt_token",
                       session_response.data.user.jwtToken,
@@ -70,12 +62,12 @@ export const login = async (email: string, password: string) => {
                       "expires",
                       session_response.data.expires,
                     );
-                    router.replace("(drawer)");
+                    router.replace("/(drawer)/(tabs)/");
                   });
               });
           });
         })
-        .catch((error) => {});
+        .catch((_) => { });
     })
-    .catch((error) => {});
+    .catch((_) => { });
 };

@@ -1,3 +1,4 @@
+import { SESSION } from "@/constants/Apiconstants";
 import axios from "axios";
 import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
@@ -10,11 +11,11 @@ export const useHealthHook = () => {
   const getData = async () => {
     const apiUrl = process.env.EXPO_PUBLIC_API_URL;
     axios
-      .get(apiUrl + "/api/auth/session")
+      .get(SESSION)
       .then((response) => {
         setData(response.data);
         SecureStore.setItem("jwt_token", response.data.user.jwtToken);
-        router.replace("(drawer)");
+        router.replace("/(drawer)/(tabs)/");
       })
       .catch((error) => {
         setError(error);
