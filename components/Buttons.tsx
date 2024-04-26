@@ -2,10 +2,14 @@ import React from "react";
 import { Pressable, StyleSheet } from "react-native";
 
 import { secondaryColor } from "@/constants/Colors";
-
-export const PrimaryButton: React.FC<Button> = ({ children, onPress }) => {
+// Primary Button Coomponent to use the same Button everywhere possible So the UI remains the same
+export const PrimaryButton: React.FC<Button> = ({
+  children,
+  onPress,
+  disabled,
+}) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Pressable onPress={onPress} disabled={disabled} style={styles.container}>
       {children}
     </Pressable>
   );

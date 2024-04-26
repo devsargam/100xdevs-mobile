@@ -31,6 +31,7 @@ export default function drawerLayout() {
             title: "Home",
           }}
         />
+
         {/* FIXME: Probably name me Review? and push me second bottom in the list? */}
         <Drawer.Screen
           name="testimonials"
@@ -84,6 +85,13 @@ export default function drawerLayout() {
           options={{
             drawerLabel: "Logout",
             title: "logout",
+          }}
+        />
+        <Drawer.Screen
+          name="trailer"
+          options={{
+            headerTitle: "Trailer",
+            headerTitleAlign: "center",
           }}
         />
       </Drawer>
