@@ -1,11 +1,10 @@
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { TextInput } from "react-native";
+import { TextInput, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "@/components/Buttons";
-import { Text, View } from "@/components/Themed";
 
 export default function RegisterScreen() {
   const [name, setName] = useState<string>("");

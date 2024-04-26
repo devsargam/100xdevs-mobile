@@ -9,15 +9,21 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-export const PrimaryButton = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
-  ({ children, onPress, disabled }, ref) => {
-    return (
-      <Pressable ref={ref} onPress={onPress} disabled={disabled} style={styles.container}>
-        {children}
-      </Pressable>
-    );
-  }
-);
+export const PrimaryButton = React.forwardRef<
+  React.ElementRef<typeof Pressable>,
+  ButtonProps
+>(({ children, onPress, disabled }, ref) => {
+  return (
+    <Pressable
+      ref={ref}
+      onPress={onPress}
+      disabled={disabled}
+      style={styles.container}
+    >
+      {children}
+    </Pressable>
+  );
+});
 
 const styles = StyleSheet.create({
   container: {

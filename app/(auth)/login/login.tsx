@@ -1,12 +1,18 @@
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, Pressable, StyleSheet, TextInput } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  TextInput,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { login } from "@/api/actions/loginActions";
 import { PrimaryButton } from "@/components/Buttons";
-import { Text, View } from "@/components/Themed";
 
 export default function LoginScreen() {
   const [input, setInput] = useState("");

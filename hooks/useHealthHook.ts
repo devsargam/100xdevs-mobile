@@ -19,7 +19,7 @@ export const useHealthHook = () => {
           SecureStore.setItem("jwt_token", response.data.user.jwtToken);
           router.replace("/(drawer)/(tabs)/");
         } else {
-          console.error('JWT token is undefined');
+          console.error("JWT token is undefined");
         }
       })
       .catch((error) => {
