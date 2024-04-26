@@ -51,7 +51,7 @@ export default function RegisterScreen() {
         <TextInput
           className="w-full px-4 py-2 border border-black border-opacity-20 rounded-md text-black"
           value={email}
-          placeholder="+91 9876543210"
+          placeholder="youremail@abc.com"
           autoCapitalize="words"
           onChangeText={(text) => {
             setEmail(text);
