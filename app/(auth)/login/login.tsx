@@ -30,7 +30,7 @@ export default function LoginScreen() {
     return (
       <SafeAreaView>
         <View className="flex items-center justify-center px-5 w-screen h-screen">
-          <Text>Loading...</Text>
+          <Text>Getting your credentials...</Text>
         </View>
       </SafeAreaView>
     );

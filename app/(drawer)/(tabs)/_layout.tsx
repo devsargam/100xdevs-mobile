@@ -23,43 +23,19 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, false),
-        // title: "Hkirat Bhaiya Image",
-        // headerLeft: () => (
-        //   <Link href="/(drawer)/" asChild>
-        //     <Pressable>
-        //       {({ pressed }) => (
-        //         <FontAwesome
-        //           name="bars"
-        //           size={25}
-        //           color={Colors[colorScheme ?? "light"].text}
-        //           style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
-        //         />
-        //       )}
-        //     </Pressable>
-        //   </Link>
-        // ),
-        // headerRight: () => (
-        //   <Link href="/modal" asChild>
-        //     <Pressable>
-        //       {({ pressed }) => (
-        //         <FontAwesome
-        //           name="bell"
-        //           size={25}
-        //           color={Colors[colorScheme ?? "light"].text}
-        //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-        //         />
-        //       )}
-        //     </Pressable>
-        //   </Link>
-        // ),
+        headerShown: useClientOnlyValue(false, true),
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 24
+        },
+
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           tabBarLabel: "Home",
-          headerTitleAlign: "center",
+          headerTitle: "All Courses",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
@@ -68,6 +44,8 @@ export default function TabLayout() {
         name="downloads"
         options={{
           tabBarLabel: "Downloads",
+          headerTitle: "Downloads",
+
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="download" color={color} />
           ),
@@ -77,6 +55,8 @@ export default function TabLayout() {
         name="myZone"
         options={{
           tabBarLabel: "My Zone",
+          headerTitle: "My Zone",
+
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
@@ -85,12 +65,16 @@ export default function TabLayout() {
         options={{
           tabBarLabel: "Code Lab",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTitle: "Code Lab",
+          headerTitleAlign: "center"
         }}
       />
       <Tabs.Screen
         name="codeHelp"
         options={{
           tabBarLabel: "Code Help",
+          headerTitle: "Help",
+
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="codepen" color={color} />
           ),

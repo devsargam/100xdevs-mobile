@@ -10,13 +10,14 @@ export const useHealthHook = () => {
   const [data, setData] = useState<any>();
   const [error, setError] = useState<any>();
   const getData = async () => {
-    const apiUrl = process.env.EXPO_PUBLIC_API_URL;
     axios
       .get(SESSION)
       .then((response) => {
-        setData(response.data);
-        SecureStore.setItem("jwt_token", response.data.user.jwtToken);
-        router.replace("/(drawer)/(tabs)/");
+        if (response.data.user.jwtToken) {
+          setData(response.data);
+          SecureStore.setItem("jwt_token", response.data.user.jwtToken);
+          router.replace("/(drawer)/(tabs)/");
+        }
       })
       .catch((error) => {
         setError(error);

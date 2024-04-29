@@ -29,6 +29,7 @@ export default function drawerLayout() {
           options={{
             drawerLabel: "Home",
             title: "Home",
+            headerTitleAlign: "center",
           }}
         />
 

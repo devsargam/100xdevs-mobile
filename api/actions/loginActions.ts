@@ -45,6 +45,7 @@ export const login = async (email: string, password: string) => {
               })
               .catch((_) => {
                 axios.get(SESSION).then((session_response) => {
+
                   SecureStore.setItem(
                     "jwt_token",
                     session_response.data.user.jwtToken,
@@ -62,7 +63,11 @@ export const login = async (email: string, password: string) => {
               });
           });
         })
-        .catch((_) => { });
+        .catch((_) => {
+
+        });
     })
-    .catch((_) => { });
+    .catch((err) => {
+      console.log(err)
+    });
 };
