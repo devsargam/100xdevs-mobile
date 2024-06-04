@@ -1,6 +1,7 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link } from "expo-router";
 import { Drawer } from "expo-router/drawer";
+import React from "react";
 import { Pressable } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 

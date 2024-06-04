@@ -1,6 +1,6 @@
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import { useState } from "react";
+import React, { useState } from "react";
 import { TextInput, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
