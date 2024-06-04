@@ -7,7 +7,7 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useHealthHook } from "@/hooks/useHealthHook";
@@ -38,10 +38,10 @@ export default function RootLayout() {
   }, [error]);
 
   useEffect(() => {
-    if (loaded && !loading) {
+    if (loaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded, loading]);
+  }, [loaded, error]);
   return <RootLayoutNav />;
 }
 
