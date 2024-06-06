@@ -2,15 +2,15 @@ import { ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
+import { RecoilRoot } from "recoil";
 
 import {
   useColorScheme,
   useInitialAndroidBarSync,
 } from "@/hooks/useColorScheme";
 import { NAV_THEME } from "@/theme";
-import { StatusBar } from "expo-status-bar";
-import { RecoilRoot } from "recoil";
 import "../global.css";
 
 export {

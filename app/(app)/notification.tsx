@@ -1,6 +1,7 @@
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { StatusBar } from "expo-status-bar";
 import { Linking, Platform, Text, View } from "react-native";
+
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function ModalScreen() {
   const { colors, colorScheme } = useColorScheme();
@@ -21,7 +22,8 @@ export default function ModalScreen() {
           You can install any of the free components from the{" "}
           <Text
             onPress={() => Linking.openURL("https://nativewindui.com")}
-            className="text-primary">
+            className="text-primary"
+          >
             NativeWindUI
           </Text>
           {" website."}

@@ -1,10 +1,3 @@
-import {
-  OnBoardContent,
-  OnBoardFooter,
-  OnBoardLogo,
-  OnBoardSlider,
-} from "@/components";
-import { ONBOARD_DATA } from "@/constants";
 import { useState } from "react";
 import { useWindowDimensions } from "react-native";
 import Animated, {
@@ -16,6 +9,14 @@ import Animated, {
   useDerivedValue,
   useSharedValue,
 } from "react-native-reanimated";
+
+import {
+  OnBoardContent,
+  OnBoardFooter,
+  OnBoardLogo,
+  OnBoardSlider,
+} from "@/components";
+import { ONBOARD_DATA } from "@/constants";
 
 export default function OnBoard() {
   const [isLastPage, setLastPage] = useState(false);
@@ -43,14 +44,15 @@ export default function OnBoard() {
   return (
     <Animated.View className="relative flex-1" entering={FadeInDown}>
       <OnBoardLogo />
-      <Animated.View entering={FadeIn.delay(500)} className={"relative"}>
+      <Animated.View entering={FadeIn.delay(500)} className="relative">
         <Animated.ScrollView
           ref={scrollRef}
           horizontal
           showsHorizontalScrollIndicator={false}
           pagingEnabled
           onScroll={scrollHandler}
-          scrollEventThrottle={16}>
+          scrollEventThrottle={16}
+        >
           {ONBOARD_DATA.map((data, index) => (
             <OnBoardContent
               data={data}

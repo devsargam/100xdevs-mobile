@@ -4,9 +4,8 @@ import Animated, {
   ZoomInRotate,
 } from "react-native-reanimated";
 
-import { cn } from "@/lib/cn";
-import { COLORS } from "@/theme/colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { cn } from "@/lib/cn";
 
 export function ThemeToggle() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -15,7 +14,8 @@ export function ThemeToggle() {
       <Animated.View
         className="items-center justify-center"
         key={`toggle-${colorScheme}`}
-        entering={ZoomInRotate}>
+        entering={ZoomInRotate}
+      >
         <Pressable onPress={toggleColorScheme} className="opacity-80">
           {colorScheme === "dark"
             ? ({ pressed }) => (

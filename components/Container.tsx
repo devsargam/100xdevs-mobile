@@ -1,4 +1,5 @@
 import { SafeAreaView, ViewProps } from "react-native";
+
 import { cn } from "@/lib/cn";
 
 export function Container({ children, className }: ViewProps) {

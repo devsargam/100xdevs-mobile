@@ -1,7 +1,3 @@
-import { DrawerContent, ThemeToggle } from "@/components";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { cn } from "@/lib/cn";
-import { userAtom } from "@/store";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Link, Redirect } from "expo-router";
 import { Drawer } from "expo-router/drawer";
@@ -10,18 +6,24 @@ import { Pressable, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useRecoilValueLoadable } from "recoil";
 
+import { DrawerContent, ThemeToggle } from "@/components";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { cn } from "@/lib/cn";
+import { userAtom } from "@/store";
+
 export default function drawerLayout() {
   const { contents: user, state } = useRecoilValueLoadable(userAtom);
 
   if (!user) {
-    return <Redirect href={"/on-board"} />;
+    return <Redirect href="/on-board" />;
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
         screenOptions={SCREEN_OPTIONS}
-        drawerContent={(props) => <DrawerContent {...props} />}>
+        drawerContent={(props) => <DrawerContent {...props} />}
+      >
         <Drawer.Screen
           name="(tabs)"
           options={{

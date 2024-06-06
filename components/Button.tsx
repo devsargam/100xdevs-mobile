@@ -1,6 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { forwardRef } from "react";
 import { Pressable, PressableProps, View } from "react-native";
+
 import { cn } from "@/lib/cn";
 
 const buttonVariants = cva(
@@ -23,7 +24,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 const buttonShadowVariants = cva("rounded-md", {
@@ -57,5 +58,5 @@ export const Button = forwardRef<View, ButtonProps>(
         />
       </View>
     );
-  }
+  },
 );

@@ -3,6 +3,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { useSetRecoilState } from "recoil";
+
 import { Container } from "@/components";
 import { userAtom } from "@/store";
 export default function SignIn() {
@@ -91,7 +92,8 @@ export default function SignIn() {
           </Pressable>
           <Pressable
             className="rounded-lg bg-blue-600 p-4"
-            onPress={handleSubmit}>
+            onPress={handleSubmit}
+          >
             <Text className="text-center text-slate-50">Sign In</Text>
           </Pressable>
           <View className="flex-row justify-center gap-1">

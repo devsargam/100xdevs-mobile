@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image, Text, View } from "react-native";
 import { useRecoilValue } from "recoil";
+
 import { userAtom } from "@/store";
 
 export const ProfileCard = () => {
@@ -17,7 +18,7 @@ export const ProfileCard = () => {
         </View>
         <Ionicons name="moon" size={24} color="white" className="my-2 " />
       </View>
-      <Text className="my-2 text-lg text-white">{"Display Name"}</Text>
+      <Text className="my-2 text-lg text-white">Display Name</Text>
     </View>
   );
 };

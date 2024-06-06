@@ -53,7 +53,8 @@ export default function TabLayout() {
         //     </Pressable>
         //   </Link>
         // ),
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
