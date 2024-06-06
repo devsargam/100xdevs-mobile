@@ -15,7 +15,7 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <Tabs
@@ -53,8 +53,7 @@ export default function TabLayout() {
         //     </Pressable>
         //   </Link>
         // ),
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{
