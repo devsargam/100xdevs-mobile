@@ -54,7 +54,7 @@ const SlidePoiner = ({
     <Animated.View
       key={index}
       style={animatedStyle}
-      className={cn("h-2.5 w-2.5 rounded-3xl bg-[#BED0F9] transition-all")}
+      className={cn("h-2.5 w-2.5 rounded-full bg-[#BED0F9]")}
     />
   );
 };

@@ -1,6 +1,6 @@
 import { Entypo, Feather } from "@expo/vector-icons";
 import { DrawerContentComponentProps } from "@react-navigation/drawer";
-import { CommonActions, DrawerActions } from "@react-navigation/native";
+import { CommonActions } from "@react-navigation/native";
 import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSetRecoilState } from "recoil";
@@ -24,9 +24,7 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
     <View className="flex-1" style={{ paddingBottom: insets.bottom }}>
       <ProfileCard />
       <View className="p-4">
-        {state.routes.map((route, idx) => {
-          const focused = idx === state.index;
-
+        {state.routes.map((route) => {
           const onPress = () => {
             const event = navigation.emit({
               type: "drawerItemPress",
@@ -36,9 +34,7 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
 
             if (!event.defaultPrevented) {
               navigation.dispatch({
-                ...(focused
-                  ? DrawerActions.closeDrawer()
-                  : CommonActions.navigate({ name: route.name, merge: true })),
+                ...CommonActions.navigate({ name: route.name, merge: true }),
                 target: state.key,
               });
             }
@@ -58,17 +54,16 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
               key={route.key}
               onPress={onPress}
               style={drawerItemStyle}
-              className={cn("my-1 flex-row items-center justify-start gap-4")}
-            >
+              className={cn("my-1 flex-row items-center justify-start gap-4")}>
               {drawerIcon
-                ? drawerIcon({ size: 20, focused, color: "#545454" })
+                ? drawerIcon({ size: 20, focused: true, color: "#545454" })
                 : null}
               {typeof label === "string" ? (
                 <Text className="text-base font-medium capitalize text-slate-600">
                   {label}
                 </Text>
               ) : (
-                label({ color: "white", focused })
+                label({ color: "white", focused: true })
               )}
             </Button>
           );
@@ -79,16 +74,14 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
           <Button
             variant="link"
             className="flex-row justify-start gap-6"
-            onPress={handleLogout}
-          >
+            onPress={handleLogout}>
             <Entypo name="star" size={20} color="rgb(234 179 8)" />
             <Text className="text-base font-medium text-yellow-500">Rate</Text>
           </Button>
           <Button
             variant="link"
             className="flex-row justify-start gap-6"
-            onPress={handleLogout}
-          >
+            onPress={handleLogout}>
             <Entypo name="share" size={20} color="rgb(59 130 246)" />
             <Text className="text-base font-medium text-blue-500">Share</Text>
           </Button>
@@ -96,8 +89,7 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
         <Button
           variant="link"
           className="flex-row items-center justify-start gap-6"
-          onPress={handleLogout}
-        >
+          onPress={handleLogout}>
           <Feather name="log-out" size={20} color="red" />
           <Text className="text-base font-medium text-red-500">Log Out</Text>
         </Button>

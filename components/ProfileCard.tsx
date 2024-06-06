@@ -6,6 +6,8 @@ import { userAtom } from "@/store";
 
 export const ProfileCard = () => {
   const user = useRecoilValue(userAtom);
+  console.log(user);
+
   return (
     <View className="h-1/4 w-full justify-end bg-[#6C63FF] p-4">
       <View className="flex-row justify-between">

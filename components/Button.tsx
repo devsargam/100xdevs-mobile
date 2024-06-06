@@ -5,7 +5,7 @@ import { Pressable, PressableProps, View } from "react-native";
 import { cn } from "@/lib/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 transition-transform duration-100 -translate-y-1.5 active:-translate-y-0.5",
+  "flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 transition-transform duration-100 -translate-y-1.5 active:-translate-y-0.5",
   {
     variants: {
       variant: {
