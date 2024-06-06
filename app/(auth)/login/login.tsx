@@ -1,5 +1,5 @@
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   Image,
@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { login } from "@/api/actions/loginActions";
 import { PrimaryButton } from "@/components/Buttons";
 
 export default function LoginScreen() {
@@ -20,14 +19,7 @@ export default function LoginScreen() {
   const [loading, setLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleLogin = () => {
-    setLoading(true);
-    login(input, password)
-      .then(() => {
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    <Redirect href={"/(drawer)/(tabs)/"} />;
   };
   useEffect(() => {}, [loading]);
 
