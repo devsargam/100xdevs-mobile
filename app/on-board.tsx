@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useWindowDimensions } from "react-native";
+import { useState } from 'react';
+import { useWindowDimensions } from 'react-native';
 import Animated, {
   FadeIn,
   FadeInDown,
@@ -8,15 +8,15 @@ import Animated, {
   useAnimatedScrollHandler,
   useDerivedValue,
   useSharedValue,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 import {
   OnBoardContent,
   OnBoardFooter,
   OnBoardLogo,
   OnBoardSlider,
-} from "@/components";
-import { ONBOARD_DATA } from "@/constants";
+} from '@/components';
+import { ONBOARD_DATA } from '@/constants';
 
 export default function OnBoard() {
   const [isLastPage, setLastPage] = useState(false);
@@ -42,7 +42,10 @@ export default function OnBoard() {
     scrollRef.current?.scrollToEnd({ animated: true });
   };
   return (
-    <Animated.View className="relative flex-1" entering={FadeInDown}>
+    <Animated.View
+      className="relative flex-1 bg-background"
+      entering={FadeInDown}
+    >
       <OnBoardLogo />
       <Animated.View entering={FadeIn.delay(500)} className="relative">
         <Animated.ScrollView

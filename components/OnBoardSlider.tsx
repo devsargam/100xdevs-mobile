@@ -1,14 +1,14 @@
-import { View, useWindowDimensions } from "react-native";
+import { View, useWindowDimensions } from 'react-native';
 import Animated, {
   Extrapolation,
   SharedValue,
   interpolate,
   useAnimatedStyle,
   withTiming,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
-import { ONBOARD_DATA } from "@/constants";
-import { cn } from "@/lib/cn";
+import { ONBOARD_DATA } from '@/constants';
+import { cn } from '@/lib/cn';
 
 export const OnBoardSlider = ({
   translateX,
@@ -44,7 +44,7 @@ const SlidePoiner = ({
     ];
     const opacity = withTiming(
       interpolate(x.value, inputRange, [0.35, 1, 0.35], Extrapolation.CLAMP),
-      { duration: 150 },
+      { duration: 150 }
     );
     return {
       opacity,
@@ -54,7 +54,7 @@ const SlidePoiner = ({
     <Animated.View
       key={index}
       style={animatedStyle}
-      className={cn("h-2.5 w-2.5 rounded-full bg-[#BED0F9]")}
+      className={cn('h-2.5 w-2.5 rounded-full bg-primary/60')}
     />
   );
 };

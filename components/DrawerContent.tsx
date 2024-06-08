@@ -1,15 +1,15 @@
-import { Entypo, Feather } from "@expo/vector-icons";
-import { DrawerContentComponentProps } from "@react-navigation/drawer";
-import { CommonActions } from "@react-navigation/native";
-import { Text, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useSetRecoilState } from "recoil";
+import { Entypo, Feather } from '@expo/vector-icons';
+import { DrawerContentComponentProps } from '@react-navigation/drawer';
+import { CommonActions } from '@react-navigation/native';
+import { Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSetRecoilState } from 'recoil';
 
-import { Button } from "./Button";
-import { ProfileCard } from "./ProfileCard";
+import { Button } from './Button';
+import { ProfileCard } from './ProfileCard';
 
-import { cn } from "@/lib/cn";
-import { userAtom } from "@/store";
+import { cn } from '@/lib/cn';
+import { userAtom } from '@/store';
 
 export const DrawerContent = (props: DrawerContentComponentProps) => {
   const { state, descriptors, navigation } = props;
@@ -27,7 +27,7 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
         {state.routes.map((route) => {
           const onPress = () => {
             const event = navigation.emit({
-              type: "drawerItemPress",
+              type: 'drawerItemPress',
               target: route.key,
               canPreventDefault: true,
             });
@@ -50,20 +50,21 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
                 : route.name;
           return (
             <Button
-              variant="link"
+              variant="ghosted"
               key={route.key}
               onPress={onPress}
               style={drawerItemStyle}
-              className={cn("my-1 flex-row items-center justify-start gap-4")}>
+              className={cn('my-1 flex-row items-center justify-start gap-4')}
+            >
               {drawerIcon
-                ? drawerIcon({ size: 20, focused: true, color: "#545454" })
+                ? drawerIcon({ size: 20, focused: true, color: '#545454' })
                 : null}
-              {typeof label === "string" ? (
+              {typeof label === 'string' ? (
                 <Text className="text-base font-medium capitalize text-slate-600">
                   {label}
                 </Text>
               ) : (
-                label({ color: "white", focused: true })
+                label({ color: 'white', focused: true })
               )}
             </Button>
           );
@@ -72,24 +73,27 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
       <View className="flex-1 justify-between border-t border-slate-200 p-4">
         <View>
           <Button
-            variant="link"
+            variant="ghosted"
             className="flex-row justify-start gap-6"
-            onPress={handleLogout}>
+            onPress={handleLogout}
+          >
             <Entypo name="star" size={20} color="rgb(234 179 8)" />
             <Text className="text-base font-medium text-yellow-500">Rate</Text>
           </Button>
           <Button
-            variant="link"
+            variant="ghosted"
             className="flex-row justify-start gap-6"
-            onPress={handleLogout}>
+            onPress={handleLogout}
+          >
             <Entypo name="share" size={20} color="rgb(59 130 246)" />
             <Text className="text-base font-medium text-blue-500">Share</Text>
           </Button>
         </View>
         <Button
-          variant="link"
+          variant="ghosted"
           className="flex-row items-center justify-start gap-6"
-          onPress={handleLogout}>
+          onPress={handleLogout}
+        >
           <Feather name="log-out" size={20} color="red" />
           <Text className="text-base font-medium text-red-500">Log Out</Text>
         </Button>

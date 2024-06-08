@@ -1,10 +1,12 @@
-import { Text, View, useWindowDimensions } from "react-native";
+import { useWindowDimensions } from 'react-native';
 import Animated, {
   Extrapolation,
   SharedValue,
   interpolate,
   useAnimatedStyle,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
+import { Text } from './Text';
+import { View } from './View';
 interface OnBoardContentProps {
   x: SharedValue<number>;
   index: number;
@@ -27,7 +29,7 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
       x.value,
       inputRange,
       [0.85, 1, 0.85],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       transform: [{ scale }],
@@ -41,10 +43,10 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
     >
       <Animated.Image source={data.source} style={animatedStyle} />
       <Animated.View className="items-center gap-2 px-10" style={animatedStyle}>
-        <Text className="text-lg font-semibold text-slate-600">
+        <Text size="lg" className="font-semibold">
           {data.title}
         </Text>
-        <Text className="px-10 text-center text-slate-500">
+        <Text variant={'secondary'} className="px-10 text-center">
           {data.description}
         </Text>
       </Animated.View>
