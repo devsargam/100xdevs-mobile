@@ -1,16 +1,18 @@
-import { Image, Text, View } from 'react-native';
+import { Image } from 'react-native';
 import { useRecoilValue } from 'recoil';
 
 import { userAtom } from '@/store';
 import { ThemeToggle } from './ThemeToggle';
+import { Text } from './Text';
+import { View } from './View';
 
 export const ProfileCard = () => {
   const user = useRecoilValue(userAtom);
   console.log(user);
 
   return (
-    <View className="h-1/4 w-full justify-end bg-[#6C63FF] p-4">
-      <View className="flex-row justify-between">
+    <View variant={"primary"} className="h-1/4 w-full justify-end p-4">
+      <View className="flex-row justify-between bg-transparent">
         <View className="aspect-square h-20 items-center  justify-center overflow-hidden rounded-full bg-white">
           <Image
             source={require('@assets/images/avatar.png')}
@@ -20,7 +22,7 @@ export const ProfileCard = () => {
         </View>
         <ThemeToggle />
       </View>
-      <Text className="my-2 text-lg text-white">Display Name</Text>
+      <Text variant={"primary-lite"} size={"lg"} className="my-2">Display Name</Text>
     </View>
   );
 };

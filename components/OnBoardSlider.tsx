@@ -1,4 +1,4 @@
-import { View, useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import Animated, {
   Extrapolation,
   SharedValue,
@@ -9,6 +9,7 @@ import Animated, {
 
 import { ONBOARD_DATA } from '@/constants';
 import { cn } from '@/lib/cn';
+import { View } from './View';
 
 export const OnBoardSlider = ({
   translateX,

@@ -7,7 +7,8 @@ import { createContext, useContext } from 'react';
 const viewVariants = cva('text-foreground', {
   variants: {
     variant: {
-      default: 'bg-background',
+      default: '',
+      body: 'bg-background',
       primary: 'bg-primary',
       secondary: 'bg-secondary',
       muted: 'bg-muted',

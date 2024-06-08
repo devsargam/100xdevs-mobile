@@ -1,11 +1,13 @@
 import { router } from 'expo-router';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable} from 'react-native';
 import Animated, {
   FadeInLeft,
   FadeInRight,
   FadeOutLeft,
   FadeOutRight,
 } from 'react-native-reanimated';
+import { View } from './View';
+import { Text } from './Text';
 
 export const OnBoardFooter = ({
   lastPage,
@@ -23,7 +25,7 @@ export const OnBoardFooter = ({
           className=""
           onPress={handleSkip}
         >
-          <Text className="py-2 text-secondary-foreground">Skip</Text>
+          <Text variant={"secondary"} className="py-2">Skip</Text>
         </AnimatedBtn>
       )}
       {lastPage && (
@@ -33,7 +35,7 @@ export const OnBoardFooter = ({
           className="self-end"
           onPress={() => router.replace('/sign-in')}
         >
-          <Text className="rounded-3xl bg-primary px-4 py-2 text-primary-foreground">
+          <Text variant={"primary-lite"} className="rounded-3xl bg-primary px-4 py-2">
             Sign In
           </Text>
         </AnimatedBtn>
