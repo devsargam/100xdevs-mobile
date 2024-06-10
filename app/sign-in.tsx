@@ -101,7 +101,7 @@ export default function SignIn() {
               Forgot Password
             </Text>
           </Button>
-          <Button onPress={handleSubmit}>
+          <Button onPress={handleSubmit} className='active:bg-primary/70'>
             <Text variant={'primary-lite'}>Sign In</Text>
           </Button>
           <View className="flex-row justify-center gap-1">

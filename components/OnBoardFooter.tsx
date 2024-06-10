@@ -32,10 +32,10 @@ export const OnBoardFooter = ({
         <AnimatedBtn
           entering={FadeInRight.duration(150)}
           exiting={FadeOutRight.duration(150)}
-          className="self-end"
+          className="self-end bg-primary active:bg-primary/70 rounded-3xl"
           onPress={() => router.replace('/sign-in')}
         >
-          <Text variant={"primary-lite"} className="rounded-3xl bg-primary px-4 py-2">
+          <Text variant={"primary-lite"} className="px-4 py-2">
             Sign In
           </Text>
         </AnimatedBtn>
