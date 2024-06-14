@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useWindowDimensions } from "react-native";
-import Animated, { useSharedValue, withTiming } from "react-native-reanimated";
+import { useEffect } from 'react';
+import { useWindowDimensions } from 'react-native';
+import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
 
 export const OnBoardLogo = () => {
   const dimensions = useWindowDimensions();
@@ -14,9 +14,9 @@ export const OnBoardLogo = () => {
 
   return (
     <Animated.Text
-      style={{ fontFamily: "InterBold", transform: [{ translateY }], fontSize }}
+      style={{ fontFamily: 'InterBold', transform: [{ translateY }], fontSize }}
       allowFontScaling={false}
-      className="absolute w-full text-center text-blue-600"
+      className="absolute w-full text-center text-primary z-10"
     >
       100xdevs
     </Animated.Text>

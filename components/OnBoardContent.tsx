@@ -1,14 +1,18 @@
-import { Text, View, useWindowDimensions } from "react-native";
+import { useWindowDimensions } from "react-native";
 import Animated, {
   Extrapolation,
   SharedValue,
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { Text } from "./Text";
+import { View } from "./View";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { ScreenData } from "@/types/constant";
 interface OnBoardContentProps {
   x: SharedValue<number>;
   index: number;
-  data: any;
+  data: ScreenData;
 }
 
 export const OnBoardContent: React.FC<OnBoardContentProps> = ({
@@ -17,6 +21,7 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
   x,
 }) => {
   const { width, height } = useWindowDimensions();
+  const { colorScheme } = useColorScheme();
   const animatedStyle = useAnimatedStyle(() => {
     const inputRange = [
       (index - 0.25) * width,
@@ -27,7 +32,7 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
       x.value,
       inputRange,
       [0.85, 1, 0.85],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       transform: [{ scale }],
@@ -35,16 +40,19 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
   });
   return (
     <View
+      variant={"body"}
       className="flex-1 items-center justify-center gap-20"
       key={index}
-      style={{ width, height }}
-    >
-      <Animated.Image source={data.source} style={animatedStyle} />
+      style={{ width, height }}>
+      <Animated.Image
+        source={colorScheme === "dark" ? data["source-dark"] : data.source}
+        style={animatedStyle}
+      />
       <Animated.View className="items-center gap-2 px-10" style={animatedStyle}>
-        <Text className="text-lg font-semibold text-slate-600">
+        <Text size="lg" className="font-semibold">
           {data.title}
         </Text>
-        <Text className="px-10 text-center text-slate-500">
+        <Text variant={"secondary"} className="px-10 text-center">
           {data.description}
         </Text>
       </Animated.View>
