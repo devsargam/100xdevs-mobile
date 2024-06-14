@@ -3,7 +3,6 @@ import React from "react";
 import { useRecoilValueLoadable } from "recoil";
 
 import { userAtom } from "@/store";
-import { ThemeToggle } from "@/components";
 
 export default function ProtectedLayout() {
   const { contents: user, state } = useRecoilValueLoadable(userAtom);
@@ -14,8 +13,8 @@ export default function ProtectedLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="(drawer)" options={{headerShown:false}}/>
-      <Stack.Screen name="notification" options={MODAL_OPTIONS}/>
+      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+      <Stack.Screen name="notification" options={MODAL_OPTIONS} />
     </Stack>
   );
 }
@@ -24,5 +23,4 @@ const MODAL_OPTIONS = {
   presentation: "modal",
   animation: "fade_from_bottom", // for android
   title: "Notification",
-  headerRight: () => <ThemeToggle />,
 } as const;

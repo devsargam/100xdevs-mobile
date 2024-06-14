@@ -1,34 +1,27 @@
-import { StatusBar } from "expo-status-bar";
-import { Linking, Platform, Text, View } from "react-native";
+import { Image } from "react-native";
 
+import { Button, Container, Text, View } from "@/components";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-export default function ModalScreen() {
+export default function Notification() {
   const { colors, colorScheme } = useColorScheme();
+  const notificationImg =
+    colorScheme === "dark"
+      ? require("assets/images/dark-notify.png")
+      : require("@assets/images/notify.png");
   return (
-    <>
-      <StatusBar
-        style={
-          Platform.OS === "ios"
-            ? "light"
-            : colorScheme === "dark"
-              ? "light"
-              : "dark"
-        }
-      />
-      <View className="flex-1 items-center justify-center gap-1 px-12">
-        <Text className="pb-1 text-center font-semibold">NativeWindUI</Text>
-        <Text className="pb-4 text-center">
-          You can install any of the free components from the{" "}
-          <Text
-            onPress={() => Linking.openURL("https://nativewindui.com")}
-            className="text-primary"
-          >
-            NativeWindUI
-          </Text>
-          {" website."}
+    <Container className="items-center gap-3 mt-[25%]">
+      <Image source={notificationImg} />
+      <View className="items-center gap-1 p-4">
+        <Text className="text-xl font-semibold">No Notification to show</Text>
+        <Text variant="secondary" className="text-center">
+          You currently have no notification, We will notify you when something
+          new happens!
         </Text>
       </View>
-    </>
+      <Button size="sm">
+        <Text variant="primary-lite">Explore</Text>
+      </Button>
+    </Container>
   );
 }
