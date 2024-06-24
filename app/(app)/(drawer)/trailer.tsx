@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 
 import { PrimaryButton } from "@/components/Buttons";
 import Video from "@/components/videoplayer/video";
@@ -7,6 +7,17 @@ import { useTrailerHook } from "@/hooks/useTrailerHook";
 
 const Trailer = () => {
   const [loading, data, error] = useTrailerHook();
+
+  if (error) {
+    return Alert.alert("Error", "Something went wrong", [
+      {
+        text: "Retry",
+        onPress: () => {
+          // retry
+        },
+      },
+    ]);
+  }
   if (loading) {
     return (
       <View

@@ -8,7 +8,7 @@ export default function ProtectedLayout() {
   const { contents: user, state } = useRecoilValueLoadable(userAtom);
 
   if (!user) {
-    return <Redirect href="/on-board" />;
+    return <Redirect href="/sign-in" />;
   }
 
   return (

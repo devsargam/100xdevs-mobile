@@ -4,7 +4,7 @@ import { Button, Container, Text, View } from "@/components";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function Notification() {
-  const { colors, colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
   const notificationImg =
     colorScheme === "dark"
       ? require("assets/images/dark-notify.png")
