@@ -1,4 +1,5 @@
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { Link } from "expo-router";
 import { Drawer } from "expo-router/drawer";
 import React from "react";
@@ -8,7 +9,6 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { DrawerContent } from "@/components";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { cn } from "@/lib/cn";
-import { DrawerNavigationOptions } from "@react-navigation/drawer";
 
 export default function drawerLayout() {
   return (
@@ -17,10 +17,7 @@ export default function drawerLayout() {
         screenOptions={SCREEN_OPTIONS}
         drawerContent={(props) => <DrawerContent {...props} />}
       >
-        <Drawer.Screen
-          name="(tabs)"
-          options={INDEX_OPTIONS}
-        />
+        <Drawer.Screen name="(tabs)" options={INDEX_OPTIONS} />
         <Drawer.Screen
           name="invoices"
           options={{
@@ -66,7 +63,7 @@ export default function drawerLayout() {
 }
 const SCREEN_OPTIONS = {} as const;
 
-const INDEX_OPTIONS:DrawerNavigationOptions = {
+const INDEX_OPTIONS: DrawerNavigationOptions = {
   title: "100xdevs",
   headerRight: () => <SettingsIcon />,
   drawerLabel: "Home",
@@ -80,11 +77,14 @@ function SettingsIcon() {
       <Pressable className="mx-4">
         {({ pressed }) => (
           <View className={cn(pressed ? "opacity-50" : "opacity-90")}>
-            <Ionicons name="notifications" size={24} color={colors.foreground} />
+            <Ionicons
+              name="notifications"
+              size={24}
+              color={colors.foreground}
+            />
           </View>
         )}
       </Pressable>
     </Link>
   );
 }
-
