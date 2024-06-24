@@ -3,7 +3,6 @@ import * as React from "react";
 import { SearchBarProps } from "react-native-screens";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
-
 import { COLORS } from "@/theme/colors";
 
 export function useHeaderSearchBar(props: SearchBarProps = {}) {
