@@ -1,13 +1,14 @@
-import { router } from 'expo-router';
-import { Pressable} from 'react-native';
+import { router } from "expo-router";
+import { Pressable } from "react-native";
 import Animated, {
   FadeInLeft,
   FadeInRight,
   FadeOutLeft,
   FadeOutRight,
-} from 'react-native-reanimated';
-import { View } from './View';
-import { Text } from './Text';
+} from "react-native-reanimated";
+
+import { Text } from "./Text";
+import { View } from "./View";
 
 export const OnBoardFooter = ({
   lastPage,
@@ -25,7 +26,9 @@ export const OnBoardFooter = ({
           className=""
           onPress={handleSkip}
         >
-          <Text variant={"secondary"} className="py-2">Skip</Text>
+          <Text variant="secondary" className="py-2">
+            Skip
+          </Text>
         </AnimatedBtn>
       )}
       {lastPage && (
@@ -33,9 +36,9 @@ export const OnBoardFooter = ({
           entering={FadeInRight.duration(150)}
           exiting={FadeOutRight.duration(150)}
           className="self-end bg-primary active:bg-primary/70 rounded-3xl"
-          onPress={() => router.replace('/sign-in')}
+          onPress={() => router.replace("/sign-in")}
         >
-          <Text variant={"primary-lite"} className="px-4 py-2">
+          <Text variant="primary-lite" className="px-4 py-2">
             Sign In
           </Text>
         </AnimatedBtn>

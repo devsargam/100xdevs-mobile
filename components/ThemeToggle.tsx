@@ -1,13 +1,13 @@
-import { Pressable, Text, View } from 'react-native';
+import { Feather, Ionicons } from "@expo/vector-icons";
+import { Pressable, View } from "react-native";
 import Animated, {
   LayoutAnimationConfig,
   ZoomInRotate,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { cn } from '@/lib/cn';
-import { Feather, Ionicons } from '@expo/vector-icons';
-import { COLORS } from '@/theme/colors';
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { cn } from "@/lib/cn";
+import { COLORS } from "@/theme/colors";
 
 export function ThemeToggle() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -19,14 +19,14 @@ export function ThemeToggle() {
         entering={ZoomInRotate}
       >
         <Pressable onPress={toggleColorScheme}>
-          {colorScheme === 'dark'
+          {colorScheme === "dark"
             ? ({ pressed }) => (
-                <View className={cn('px-0.5', pressed && 'opacity-50')}>
+                <View className={cn("px-0.5", pressed && "opacity-50")}>
                   <Feather name="sun" size={24} color={COLORS.white} />
                 </View>
               )
             : ({ pressed }) => (
-                <View className={cn('px-0.5', pressed && 'opacity-50')}>
+                <View className={cn("px-0.5", pressed && "opacity-50")}>
                   <Ionicons name="moon" size={24} color={COLORS.white} />
                 </View>
               )}

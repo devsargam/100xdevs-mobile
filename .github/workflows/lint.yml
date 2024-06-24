@@ -14,13 +14,13 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Formatting Check
-        run: npm run format-check
+        run: yarn format-check
 
       - name: Type check
-        run: npm run type-check
+        run: yarn type-check

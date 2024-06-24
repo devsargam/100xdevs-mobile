@@ -14,7 +14,7 @@
     "type-check": "tsc --pretty --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "pre-commit": "npm run format && npm run lint:fix && npm run type-check && npm run lint && npm run format-check",
+    "pre-commit": "yarn format && yarn lint:fix && yarn type-check && yarn lint && yarn format-check",
     "prepare": "husky"
   },
   "jest": {

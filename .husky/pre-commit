@@ -1,1 +1,3 @@
-npm run pre-commit
+npx expo-doctor
+yarn pre-commit
+git add .

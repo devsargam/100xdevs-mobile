@@ -1,32 +1,32 @@
-import { VariantProps, cva } from 'class-variance-authority';
-import { Text as RNText, TextProps } from 'react-native';
+import { VariantProps, cva } from "class-variance-authority";
+import { createContext, useContext } from "react";
+import { Text as RNText, TextProps } from "react-native";
 
-import { cn } from '@/lib/cn';
-import { createContext, useContext } from 'react';
+import { cn } from "@/lib/cn";
 
-const textVariants = cva('text-foreground', {
+const textVariants = cva("text-foreground", {
   variants: {
     variant: {
-      default: 'text-foreground',
-      primary: 'text-primary',
-      'primary-lite': 'text-primary-foreground',
-      secondary: 'text-secondary-foreground',
-      muted: 'text-muted',
-      accent: 'text-accent',
-      destructive: 'text-destructive',
-      'muted-lite': 'text-muted-foreground',
-      'accent-lite': 'text-accent-foreground',
-      'destructive-lite': 'text-destructive-foreground',
+      default: "text-foreground",
+      primary: "text-primary",
+      "primary-lite": "text-primary-foreground",
+      secondary: "text-secondary-foreground",
+      muted: "text-muted",
+      accent: "text-accent",
+      destructive: "text-destructive",
+      "muted-lite": "text-muted-foreground",
+      "accent-lite": "text-accent-foreground",
+      "destructive-lite": "text-destructive-foreground",
     },
     size: {
-      default: 'text-base',
-      sm: 'text-sm',
-      lg: 'text-xl',
+      default: "text-base",
+      sm: "text-sm",
+      lg: "text-xl",
     },
   },
   defaultVariants: {
-    variant: 'default',
-    size: 'default',
+    variant: "default",
+    size: "default",
   },
 });
 
