@@ -2,7 +2,7 @@ import { useNavigation } from "expo-router";
 import * as React from "react";
 import { SearchBarProps } from "react-native-screens";
 
-import { useColorScheme } from "./useColorScheme";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 import { COLORS } from "@/theme/colors";
 
@@ -19,7 +19,7 @@ export function useHeaderSearchBar(props: SearchBarProps = {}) {
         textColor: colors.foreground,
         tintColor: colors.primary,
         headerIconColor: colors.foreground,
-        hintTextColor: colors.grey,
+        hintTextColor: "grey",
         hideWhenScrolling: false,
         onChangeText(ev) {
           setSearch(ev.nativeEvent.text);

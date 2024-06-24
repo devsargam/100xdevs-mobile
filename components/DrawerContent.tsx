@@ -1,17 +1,17 @@
-import { Entypo, Feather } from '@expo/vector-icons';
-import { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { CommonActions } from '@react-navigation/native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useSetRecoilState } from 'recoil';
+import { Entypo, Feather } from "@expo/vector-icons";
+import { DrawerContentComponentProps } from "@react-navigation/drawer";
+import { CommonActions } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useSetRecoilState } from "recoil";
 
-import { Button } from './Button';
-import { ProfileCard } from './ProfileCard';
+import { Button } from "./Button";
+import { ProfileCard } from "./ProfileCard";
+import { Text } from "./Text";
+import { View } from "./View";
 
-import { cn } from '@/lib/cn';
-import { userAtom } from '@/store';
-import { Text } from './Text';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { View } from './View';
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { cn } from "@/lib/cn";
+import { userAtom } from "@/store";
 
 export const DrawerContent = (props: DrawerContentComponentProps) => {
   const { colors } = useColorScheme();
@@ -24,13 +24,17 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
   // console.log(insets);
 
   return (
-    <View variant={"secondary"} className="flex-1" style={{ paddingBottom: insets.bottom }}>
+    <View
+      variant="secondary"
+      className="flex-1"
+      style={{ paddingBottom: insets.bottom }}
+    >
       <ProfileCard />
       <View className="p-4">
         {state.routes.map((route) => {
           const onPress = () => {
             const event = navigation.emit({
-              type: 'drawerItemPress',
+              type: "drawerItemPress",
               target: route.key,
               canPreventDefault: true,
             });
@@ -57,17 +61,21 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
               key={route.key}
               onPress={onPress}
               style={drawerItemStyle}
-              className={cn('my-1 flex-row items-center justify-start gap-4')}
+              className={cn("my-1 flex-row items-center justify-start gap-4")}
             >
               {drawerIcon
-                ? drawerIcon({ size: 20, focused: true, color: colors.secondary })
+                ? drawerIcon({
+                    size: 20,
+                    focused: true,
+                    color: colors.secondary,
+                  })
                 : null}
-              {typeof label === 'string' ? (
-                <Text variant={"secondary"} className="font-medium capitalize">
+              {typeof label === "string" ? (
+                <Text variant="secondary" className="font-medium capitalize">
                   {label}
                 </Text>
               ) : (
-                label({ color: 'white', focused: true })
+                label({ color: "white", focused: true })
               )}
             </Button>
           );
@@ -98,7 +106,9 @@ export const DrawerContent = (props: DrawerContentComponentProps) => {
           onPress={handleLogout}
         >
           <Feather name="log-out" size={20} color={colors.destructive} />
-          <Text variant={"destructive"} className="font-medium">Log Out</Text>
+          <Text variant="destructive" className="font-medium">
+            Log Out
+          </Text>
         </Button>
       </View>
     </View>

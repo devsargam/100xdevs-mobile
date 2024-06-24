@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useWindowDimensions } from 'react-native';
+import { useState } from "react";
+import { useWindowDimensions } from "react-native";
 import Animated, {
   FadeIn,
   FadeInDown,
@@ -8,15 +8,15 @@ import Animated, {
   useAnimatedScrollHandler,
   useDerivedValue,
   useSharedValue,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
 import {
   OnBoardContent,
   OnBoardFooter,
   OnBoardLogo,
   OnBoardSlider,
-} from '@/components';
-import { ONBOARD_DATA } from '@/constants';
+} from "@/components";
+import { ONBOARD_DATA } from "@/constants";
 
 export default function OnBoard() {
   const [isLastPage, setLastPage] = useState(false);
