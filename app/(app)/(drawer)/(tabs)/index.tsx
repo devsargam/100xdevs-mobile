@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 
 import Courses from "@/components/Courses";
 import { useCoursesHook } from "@/hooks/useCoursesHook";
@@ -11,6 +11,21 @@ export default function TabOneScreen() {
       <View style={styles.container}>
         <Text>Loading...</Text>
       </View>
+    );
+  }
+
+  if (error) {
+    return Alert.alert(
+      "Error",
+      "Something went wrong while fetching the courses",
+      [
+        {
+          text: "Retry",
+          onPress: () => {
+            // retry
+          },
+        },
+      ],
     );
   }
 

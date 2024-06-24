@@ -1,45 +1,61 @@
-import { Entypo, FontAwesome5, Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, TextInput } from 'react-native';
-import { useSetRecoilState } from 'recoil';
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
+import * as Linking from "expo-linking";
+import { router } from "expo-router";
+import { useState } from "react";
+import { Alert, Pressable, TextInput } from "react-native";
+import { useSetRecoilState } from "recoil";
 
-import { Button, Container, Text, View } from '@/components';
-import { userAtom } from '@/store';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Button, Container, Text, View } from "@/components";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { userAtom } from "@/store";
 export default function SignIn() {
   const { colors } = useColorScheme();
   const [visible, setVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const setUser = useSetRecoilState(userAtom);
   const handleForgot = () => {
-    console.warn('HAHA you forgot!');
+    console.warn("HAHA you forgot!");
   };
 
-  const handleBack = () => {
-    router.replace('/on-board');
-  };
+  // const handleBack = () => {
+  //   router.replace('/on-board');
+  // };
 
   const handleSubmit = () => {
     if (email.length !== 0 && password.length !== 0) {
       setUser(true);
-      router.replace('/');
+      router.replace("/");
     }
   };
   const handleCreateAccount = () => {
-    console.warn('Not creating now');
+    Alert.alert(
+      "Create Account",
+      "You will be Redirected to Web-Page to Singup!",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Create",
+          onPress: () => {
+            Linking.openURL("https://harkirat.classx.co.in/");
+          },
+        },
+      ],
+    );
   };
 
   return (
     <Container>
       <View className="py-5">
-        <Ionicons
+        {/* <Ionicons
           name="arrow-back"
           size={24}
           color={colors.foreground}
           onPress={handleBack}
-        />
+        /> */}
       </View>
       <View className="gap-10 p-5">
         <View className="gap-2">
@@ -57,7 +73,7 @@ export default function SignIn() {
             <Text size="sm" variant="secondary">
               Enter your email id
             </Text>
-            <View variant={'secondary'} className="rounded px-5 py-2">
+            <View variant="secondary" className="rounded px-5 py-2">
               <TextInput
                 placeholder="test@example.com"
                 className="text-base text-foreground placeholder:text-secondary-foreground"
@@ -72,7 +88,7 @@ export default function SignIn() {
               Enter your password
             </Text>
             <View
-              variant={'secondary'}
+              variant="secondary"
               className="flex-row items-center rounded px-5 py-2"
             >
               <TextInput
@@ -83,7 +99,7 @@ export default function SignIn() {
                 onChangeText={setPassword}
               />
               <FontAwesome5
-                name={visible ? 'eye' : 'eye-slash'}
+                name={visible ? "eye" : "eye-slash"}
                 size={14}
                 color={colors.secondary}
                 onPress={() => {
@@ -93,21 +109,21 @@ export default function SignIn() {
             </View>
           </View>
           <Button
-            variant={'ghosted'}
+            variant="ghosted"
             className="items-end px-0 py-0 min-h-0"
             onPress={handleForgot}
           >
-            <Text size={'sm'} variant={'accent'}>
+            <Text size="sm" variant="accent">
               Forgot Password
             </Text>
           </Button>
-          <Button onPress={handleSubmit} className='active:bg-primary/70'>
-            <Text variant={'primary-lite'}>Sign In</Text>
+          <Button onPress={handleSubmit} className="active:bg-primary/70">
+            <Text variant="primary-lite">Sign In</Text>
           </Button>
           <View className="flex-row justify-center gap-1">
-            <Text variant={'secondary'}>Don't have an account?</Text>
+            <Text variant="secondary">Don't have an account?</Text>
             <Pressable onPress={handleCreateAccount}>
-              <Text variant={'accent'}>Create Now</Text>
+              <Text variant="accent">Create Now</Text>
             </Pressable>
           </View>
         </View>

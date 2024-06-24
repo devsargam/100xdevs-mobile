@@ -5,8 +5,10 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+
 import { Text } from "./Text";
 import { View } from "./View";
+
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ScreenData } from "@/types/constant";
 interface OnBoardContentProps {
@@ -32,7 +34,7 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
       x.value,
       inputRange,
       [0.85, 1, 0.85],
-      Extrapolation.CLAMP
+      Extrapolation.CLAMP,
     );
     return {
       transform: [{ scale }],
@@ -40,10 +42,11 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
   });
   return (
     <View
-      variant={"body"}
+      variant="body"
       className="flex-1 items-center justify-center gap-20"
       key={index}
-      style={{ width, height }}>
+      style={{ width, height }}
+    >
       <Animated.Image
         source={colorScheme === "dark" ? data["source-dark"] : data.source}
         style={animatedStyle}
@@ -52,7 +55,7 @@ export const OnBoardContent: React.FC<OnBoardContentProps> = ({
         <Text size="lg" className="font-semibold">
           {data.title}
         </Text>
-        <Text variant={"secondary"} className="px-10 text-center">
+        <Text variant="secondary" className="px-10 text-center">
           {data.description}
         </Text>
       </Animated.View>

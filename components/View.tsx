@@ -1,22 +1,22 @@
-import { VariantProps, cva } from 'class-variance-authority';
-import { View as RNView, ViewProps } from 'react-native';
+import { VariantProps, cva } from "class-variance-authority";
+import { createContext, useContext } from "react";
+import { View as RNView, ViewProps } from "react-native";
 
-import { cn } from '@/lib/cn';
-import { createContext, useContext } from 'react';
+import { cn } from "@/lib/cn";
 
-const viewVariants = cva('text-foreground', {
+const viewVariants = cva("text-foreground", {
   variants: {
     variant: {
-      default: '',
-      body: 'bg-background',
-      primary: 'bg-primary',
-      secondary: 'bg-secondary',
-      muted: 'bg-muted',
-      accent: 'bg-accent',
+      default: "",
+      body: "bg-background",
+      primary: "bg-primary",
+      secondary: "bg-secondary",
+      muted: "bg-muted",
+      accent: "bg-accent",
     },
   },
   defaultVariants: {
-    variant: 'default',
+    variant: "default",
   },
 });
 
