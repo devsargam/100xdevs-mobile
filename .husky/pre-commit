@@ -1,2 +1,2 @@
-
 npm run pre-commit
+git add .
